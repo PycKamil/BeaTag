@@ -1,0 +1,19 @@
+PODS:
+  - Bolts (1.1.3)
+  - EstimoteSDK (2.1.5)
+  - OCMock (3.1.1)
+  - Parse (1.4.1):
+    - Bolts (~> 1.1.2)
+
+DEPENDENCIES:
+  - EstimoteSDK (~> 2.1)
+  - OCMock (~> 3.1)
+  - Parse (~> 1.4)
+
+SPEC CHECKSUMS:
+  Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
+  EstimoteSDK: 1a8184137ab16615b982efd0804aa711a0262ce7
+  OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
+  Parse: db1a09c832b7509edcc88a65dc07229f5e578c73
+
+COCOAPODS: 0.34.2
