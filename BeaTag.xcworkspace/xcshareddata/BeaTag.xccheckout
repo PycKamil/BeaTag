@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3EB2AD26-097E-4569-A505-F97AEC90378E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BeaTag</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>87507558D237790ED5D6C1E49E902300EC1CCFCC</key>
+		<string>https://github.com/PycKamil/BeaTag.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BeaTag.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>87507558D237790ED5D6C1E49E902300EC1CCFCC</key>
+		<string>..BeaTag/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/PycKamil/BeaTag.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>87507558D237790ED5D6C1E49E902300EC1CCFCC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>87507558D237790ED5D6C1E49E902300EC1CCFCC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BeaTag</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>87507558D237790ED5D6C1E49E902300EC1CCFCC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BeaTag</string>
+		</dict>
+	</array>
+</dict>
+</plist>
