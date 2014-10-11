@@ -10,9 +10,6 @@
 
 @implementation Event
 
-
-NSString* const className = @"Image";
-
 - (instancetype)initWithParseObject:(PFObject *)parseObject
 {
     

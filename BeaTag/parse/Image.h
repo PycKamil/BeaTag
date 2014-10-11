@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "Beacon.h"
 
 
 @interface Image : NSObject
@@ -16,5 +17,6 @@
 
 - (instancetype)initWithParseObject:(PFObject *)parseObject;
 
+- (void)findImagesForBeacon:(Beacon *)beacon WithBlock:(PFArrayResultBlock)callback;
 
 @end

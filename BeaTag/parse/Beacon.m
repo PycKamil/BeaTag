@@ -12,9 +12,6 @@
 
 @implementation Beacon
 
-
-NSString* const className = @"Beacon";
-
 - (instancetype)initWithParseObject:(PFObject *)parseObject
 {
     
@@ -31,7 +28,7 @@ NSString* const className = @"Beacon";
 
 + (Beacon *)findByUuidSync:(NSString *)uuid
 {
-    PFQuery * query = [PFQuery queryWithClassName:className];
+    PFQuery * query = [PFQuery queryWithClassName:@"Beacon"];
     [query whereKey:@"uuid" equalTo:uuid];
     
     NSArray *obj = [query findObjects];
@@ -41,7 +38,7 @@ NSString* const className = @"Beacon";
 
 + (void)findByMinor:(NSNumber *)minor AndMajor:(NSNumber *)major WithBlock:(PFArrayResultBlock)callback
 {
-    PFQuery * query = [PFQuery queryWithClassName:className];
+    PFQuery * query = [PFQuery queryWithClassName:@"Beacon"];
     [query whereKey:@"uuid" equalTo:UUID];
     [query whereKey:@"minor" greaterThan:minor];
     [query whereKey:@"major" greaterThan:major];

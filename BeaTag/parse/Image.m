@@ -10,9 +10,6 @@
 
 @implementation Image
 
-
-NSString* const className = @"Image";
-
 - (instancetype)initWithParseObject:(PFObject *)parseObject
 {
     
@@ -23,5 +20,11 @@ NSString* const className = @"Image";
     return self;
     
 }
+
+- (void)findImagesForBeacon:(Beacon *)beacon WithBlock:(PFArrayResultBlock)callback
+{
+    
+}
+
 
 @end
