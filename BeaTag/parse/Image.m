@@ -19,21 +19,27 @@ NSString *const parseImageClassName = @"Image";
     self = [super init];
     if (self) {
         self.parseObject = parseObject;
-
         self.objectId = parseObject[@"objectId"];
     }
     return self;
     
 }
 
-- (void)findImagesForBeaconId:(NSString *)beaconId WithBlock:(PFArrayResultBlock)callback
++(void)findImagesInEvent:(PFObject *)event WithBlock:(PFArrayResultBlock)callback
+{
+    PFQuery* query = [PFQuery queryWithClassName:parseImageClassName];
+    [query whereKey:@"event" equalTo:event];
+    [query findObjectsInBackgroundWithBlock:callback];
+}
+
++ (void)findImagesForBeaconId:(NSString *)beaconId WithBlock:(PFArrayResultBlock)callback
 {
     PFObject* beacon = [PFObject objectWithoutDataWithClassName:parseImageClassName objectId:beaconId];
     [self findImagesForBeacon:beacon WithBlock:callback];
 }
 
 
-- (void)findImagesForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback
++ (void)findImagesForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback
 {
     PFQuery* query = [PFQuery queryWithClassName:parseImageClassName];
     [query whereKey:@"beacon" equalTo:beacon];
@@ -41,7 +47,7 @@ NSString *const parseImageClassName = @"Image";
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
-- (void)findImagesInEvent:(PFObject *)event ForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback
++ (void)findImagesInEvent:(PFObject *)event ForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback
 {
     PFQuery* query = [PFQuery queryWithClassName:parseImageClassName];
     [query whereKey:@"event" equalTo:event];
@@ -51,16 +57,16 @@ NSString *const parseImageClassName = @"Image";
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
-+ (void)saveImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons
++ (void)saveImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons event:(PFObject *)event
 {
     NSData *imageData = UIImageJPEGRepresentation(image, 0.05f);
     
     PFFile *file = [PFFile fileWithData:imageData];
     
-    [self createRelationUploadImage:file withBeacons:enitityBeacons];
+    [self createRelationUploadImage:file withBeacons:enitityBeacons event:event];
 }
 
-+ (void)createRelationUploadImage:(PFFile *)imageFile withBeacons:(NSArray *)enitityBeacons
++ (void)createRelationUploadImage:(PFFile *)imageFile withBeacons:(NSArray *)enitityBeacons event:(PFObject *)event
 {
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
@@ -71,6 +77,7 @@ NSString *const parseImageClassName = @"Image";
             for (PFObject *beacon in enitityBeacons) {
                 [relation addObject:beacon];
             }
+            [userPhoto setValue:event forKey:@"event"];
             [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
                 }
@@ -114,9 +121,9 @@ typedef void(^ImageResultBlock)(UIImage *image);
 {
 }
 
-+(void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons
++(void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons event:(PFObject *)event
 {
-    [Image saveImage:image withBeacons:enitityBeacons];
+    [Image saveImage:image withBeacons:enitityBeacons event:event];
 }
 
 @end

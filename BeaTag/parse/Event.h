@@ -24,4 +24,5 @@
 
 + (void)getListOfEventsWithBlock:(PFArrayResultBlock)callback;
 
+
 @end

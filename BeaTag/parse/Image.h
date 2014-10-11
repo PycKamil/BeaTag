@@ -20,12 +20,14 @@
 
 - (instancetype)initWithParseObject:(PFObject *)parseObject;
 
-- (void)findImagesForBeaconId:(NSString *)beaconId WithBlock:(PFArrayResultBlock)callback;
++ (void)findImagesForBeaconId:(NSString *)beaconId WithBlock:(PFArrayResultBlock)callback;
 
-- (void)findImagesForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback;
++ (void)findImagesForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback;
 
-- (void)findImagesInEvent:(PFObject *)event ForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback;
++ (void)findImagesInEvent:(PFObject *)event ForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback;
 
-+ (void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons;
++ (void)findImagesInEvent:(PFObject *)event WithBlock:(PFArrayResultBlock)callback;
+
++ (void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons event:(PFObject *)event;
 
 @end

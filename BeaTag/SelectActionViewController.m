@@ -10,6 +10,7 @@
 #import "SelectActionViewController.h"
 #import "PhotoGalleryViewController.h"
 #import "AppManager.h"
+#import "Image.h"
 
 @interface SelectActionViewController () <MWPhotoBrowserDelegate>
 
@@ -21,9 +22,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.photos  = @[[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b.jpg"]],[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b.jpg"]] ];
+    
+    [self loadPhotos];
     self.navigationItem.title = [[[AppManager sharedInstance] selectedEvent] name];
     // Do any additional setup after loading the view.
+}
+
+-(void)loadPhotos
+{
+    [Image findImagesInEvent:[[[AppManager sharedInstance] selectedEvent] parseObject] WithBlock:^(NSArray *objects, NSError *error) {
+        [self processPhotos:objects];
+    }];
+}
+
+-(void)processPhotos:(NSArray *)photos{
+    NSMutableArray *photosArray = [NSMutableArray new];
+    for (PFObject * pfobject in photos) {
+        PFFile *file = [pfobject valueForKey:@"imageFile"];
+        MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:file.url]];
+        [photosArray addObject:photo];
+    }
+    self.photos = [photosArray copy];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -56,7 +56,7 @@ static AppManager *instance;
     dispatch_async(self.sessionQueue, ^{
         NSArray *estimoteBeacons = [self.beaconManager beaconsArray];
         NSArray *enitityBeacons = [Beacon getBeconsEnitiesWithEstimotes:estimoteBeacons];
-        [Image uploadImage:image withBeacons:enitityBeacons];
+        [Image uploadImage:image withBeacons:enitityBeacons event:self.selectedEvent.parseObject];
     });
 }
 
