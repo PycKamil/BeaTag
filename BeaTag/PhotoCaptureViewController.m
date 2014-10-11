@@ -14,6 +14,11 @@ static char * const AVCaptureStillImageIsCapturingStillImageContext = "AVCapture
 
 
 @interface PhotoCaptureViewController ()
+{
+    UIView *flashView;
+
+}
+
 @property (strong, nonatomic) AVCaptureSession* session;
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer *previewLayer;
 @property (strong, nonatomic) AVCaptureStillImageOutput *stillImageOutput;
@@ -38,6 +43,14 @@ static AVCaptureVideoOrientation avOrientationForDeviceOrientation(UIDeviceOrien
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupAVCapture];
+    [self setupFlash];
+}
+
+- (void)setupFlash
+{
+    flashView = [[UIView alloc] initWithFrame:self.previewView.frame];
+    flashView.backgroundColor = [UIColor whiteColor];
+    flashView.alpha = 0;
 }
 
 - (void)setupAVCapture
@@ -56,9 +69,6 @@ static AVCaptureVideoOrientation avOrientationForDeviceOrientation(UIDeviceOrien
     [self.previewLayer setFrame:[rootLayer bounds]];
     [rootLayer addSublayer:self.previewLayer];
     
-    // this will allow us to sync freezing the preview when the image is being captured
-    [self.stillImageOutput addObserver:self forKeyPath:@"capturingStillImage" options:NSKeyValueObservingOptionNew context:AVCaptureStillImageIsCapturingStillImageContext];
-    
     [self.session startRunning];
     
     self.stillImageOutput = [AVCaptureStillImageOutput new];
@@ -67,6 +77,11 @@ static AVCaptureVideoOrientation avOrientationForDeviceOrientation(UIDeviceOrien
     } else {
         self.stillImageOutput = nil;
     }
+    
+    // this will allow us to sync freezing the preview when the image is being captured
+    [self.stillImageOutput addObserver:self forKeyPath:@"capturingStillImage" options:NSKeyValueObservingOptionNew context:AVCaptureStillImageIsCapturingStillImageContext];
+    
+
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -86,6 +101,7 @@ static AVCaptureVideoOrientation avOrientationForDeviceOrientation(UIDeviceOrien
         AVCaptureVideoOrientation avcaptureOrientation = avOrientationForDeviceOrientation(curDeviceOrientation);
         [self.previewLayer.connection setVideoOrientation:avcaptureOrientation];
     }
+    flashView.frame = self.previewView.frame;
 }
 
 -(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
@@ -99,6 +115,8 @@ static AVCaptureVideoOrientation avOrientationForDeviceOrientation(UIDeviceOrien
     
     [super viewWillTransitionToSize: size withTransitionCoordinator: coordinator];
 }
+
+
 
 - (void) updateCameraSelection
 {
@@ -125,6 +143,32 @@ static AVCaptureVideoOrientation avOrientationForDeviceOrientation(UIDeviceOrien
         [self.session addInput:input];
     }
     [self.session commitConfiguration];
+}
+
+// this will freeze the preview when a still image is captured, we will unfreeze it when the graphics code is finished processing the image
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ( context == AVCaptureStillImageIsCapturingStillImageContext ) {
+        BOOL isCapturingStillImage = [[change objectForKey:NSKeyValueChangeNewKey] boolValue];
+        
+        if ( isCapturingStillImage ) {
+            [self.previewView.superview addSubview:flashView];
+            [UIView animateWithDuration:.4f
+                             animations:^{ flashView.alpha=0.65f; }
+             ];
+            self.previewLayer.connection.enabled = NO;
+        }
+    }
+}
+
+// Graphics code will call this when still image capture processing is complete
+- (void) unfreezePreview
+{
+    self.previewLayer.connection.enabled = YES;
+    [UIView animateWithDuration:.4f
+                     animations:^{ flashView.alpha=0; }
+                     completion:^(BOOL finished){ [flashView removeFromSuperview]; }
+     ];
 }
 
 - (void)teardownAVCapture
@@ -203,7 +247,11 @@ void writeJPEGDataToCameraRoll(NSData* data, NSDictionary* metadata)
                  writeJPEGDataToCameraRoll(jpegData, attachments);
                  
             }
-         
+         // We used KVO in the main StacheCamViewController to freeze the preview when a still image was captured.
+         // Now we are ready to take another image, unfreeze the preview
+         dispatch_async(dispatch_get_main_queue(), ^(void) {
+             [self unfreezePreview];
+         });
      }];
 }
 
