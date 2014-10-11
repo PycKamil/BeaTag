@@ -16,6 +16,7 @@
 		17DFEB6719E8E59900F941E2 /* PhotoCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DFEB6619E8E59900F941E2 /* PhotoCaptureViewController.m */; };
 		17DFEB6919E8F0A400F941E2 /* camera-shutter.png in Resources */ = {isa = PBXBuildFile; fileRef = 17DFEB6819E8F0A400F941E2 /* camera-shutter.png */; };
 		17DFEB6B19E8F50700F941E2 /* splashscreen-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 17DFEB6A19E8F50700F941E2 /* splashscreen-01.png */; };
+		17DFEB6E19E8F60400F941E2 /* PhotoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DFEB6D19E8F60400F941E2 /* PhotoGalleryViewController.m */; };
 		17E9EB9119E88DDA00078A64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EB9019E88DDA00078A64 /* main.m */; };
 		17E9EB9419E88DDA00078A64 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EB9319E88DDA00078A64 /* AppDelegate.m */; };
 		17E9EB9719E88DDA00078A64 /* EventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EB9619E88DDA00078A64 /* EventsListViewController.m */; };
@@ -56,6 +57,8 @@
 		17DFEB6619E8E59900F941E2 /* PhotoCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCaptureViewController.m; sourceTree = "<group>"; };
 		17DFEB6819E8F0A400F941E2 /* camera-shutter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-shutter.png"; sourceTree = "<group>"; };
 		17DFEB6A19E8F50700F941E2 /* splashscreen-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splashscreen-01.png"; sourceTree = "<group>"; };
+		17DFEB6C19E8F60400F941E2 /* PhotoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGalleryViewController.h; sourceTree = "<group>"; };
+		17DFEB6D19E8F60400F941E2 /* PhotoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGalleryViewController.m; sourceTree = "<group>"; };
 		17E9EB8B19E88DD900078A64 /* BeaTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E9EB8F19E88DDA00078A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17E9EB9019E88DDA00078A64 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				17DFEB6619E8E59900F941E2 /* PhotoCaptureViewController.m */,
 				17DFEB5E19E8D82D00F941E2 /* SelectActionViewController.h */,
 				17DFEB5F19E8D82D00F941E2 /* SelectActionViewController.m */,
+				17DFEB6C19E8F60400F941E2 /* PhotoGalleryViewController.h */,
+				17DFEB6D19E8F60400F941E2 /* PhotoGalleryViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -421,6 +426,7 @@
 				A5CCD96819E8AB1B002C64C2 /* Beacon.m in Sources */,
 				A5CCD96C19E8C9D8002C64C2 /* Image.m in Sources */,
 				17DFEB6719E8E59900F941E2 /* PhotoCaptureViewController.m in Sources */,
+				17DFEB6E19E8F60400F941E2 /* PhotoGalleryViewController.m in Sources */,
 				17E9EB9419E88DDA00078A64 /* AppDelegate.m in Sources */,
 				17E9EB9119E88DDA00078A64 /* main.m in Sources */,
 				A5CCD96F19E8C9E3002C64C2 /* Event.m in Sources */,

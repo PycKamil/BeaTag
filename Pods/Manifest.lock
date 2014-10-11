@@ -1,27 +1,44 @@
 PODS:
   - Bolts (1.1.3)
+  - DACircularProgress (2.2.0)
   - EstimoteSDK (2.1.5)
   - Facebook-iOS-SDK (3.17.0):
     - Bolts
+  - MBProgressHUD (0.9)
+  - MWPhotoBrowser (1.4.1):
+    - DACircularProgress
+    - MBProgressHUD (~> 0.8)
+    - PSTCollectionView (~> 1.2)
+    - SDWebImage (~> 3.7)
   - OCMock (3.1.1)
   - Parse (1.4.1):
     - Bolts (~> 1.1.2)
   - ParseFacebookUtils (1.4.1):
     - Facebook-iOS-SDK (~> 3.17.0)
     - Parse (~> 1.4.1)
+  - PSTCollectionView (1.2.3)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core
+  - SDWebImage/Core (3.7.1)
 
 DEPENDENCIES:
   - EstimoteSDK (~> 2.1)
+  - MWPhotoBrowser
   - OCMock (~> 3.1)
   - Parse (~> 1.4)
   - ParseFacebookUtils
 
 SPEC CHECKSUMS:
   Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
+  DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
   EstimoteSDK: 1a8184137ab16615b982efd0804aa711a0262ce7
   Facebook-iOS-SDK: f20274d809f112ba540842e2b6cbe50128d51b7b
+  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  MWPhotoBrowser: be05b3b7521e961382a4ba5579685bf5a00b93d8
   OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
   Parse: db1a09c832b7509edcc88a65dc07229f5e578c73
   ParseFacebookUtils: 625da00d0f36a34e25ebae7f543385a0f19ccf1e
+  PSTCollectionView: d9f466e4554cc83260ca9bde7beb27f308e8fd76
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
 
 COCOAPODS: 0.34.2
