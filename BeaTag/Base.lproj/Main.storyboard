@@ -203,8 +203,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showGallery:" destination="fmj-9g-bO0" eventType="touchUpInside" id="qf6-ot-aqJ"/>
-                                    <action selector="takePhoto:" destination="fmj-9g-bO0" eventType="touchUpOutside" id="jbE-X4-lgC"/>
+                                    <segue destination="9LB-qq-AvM" kind="show" id="Wmz-fs-fLK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -268,6 +267,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDX-B0-O0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2176" y="157"/>
+        </scene>
+        <!--Hack Zurich Gallery-->
+        <scene sceneID="JHW-0F-SN3">
+            <objects>
+                <viewController title="Hack Zurich Gallery" id="9LB-qq-AvM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V3k-IL-K9A"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Oj-IO-ROL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J4o-nx-xkl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nIj-P3-zYD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2176" y="920"/>
         </scene>
     </scenes>
     <resources>
