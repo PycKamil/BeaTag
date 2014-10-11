@@ -8,6 +8,7 @@
 
 #import "Image.h"
 #import "Beacon.h"
+#import "ErrorHelper.h"
 
 @implementation Image
 
@@ -82,12 +83,12 @@ NSString *const parseImageClassName = @"Image";
                 if (!error) {
                 }
                 else {
-                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                    displayErrorOnMainQueue(error, @"Image upload failed!");
                 }
             }];
         }
         else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
+                displayErrorOnMainQueue(error, @"Image upload failed!");
         }
     } progressBlock:^(int percentDone) {
     }];
@@ -107,7 +108,7 @@ typedef void(^ImageResultBlock)(UIImage *image);
                 self.image = [UIImage imageWithData:data];
             }
             else {
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
+                displayErrorOnMainQueue(error, @"Image download failed!");
             }
         }];
     }

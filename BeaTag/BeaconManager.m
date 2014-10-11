@@ -8,7 +8,7 @@
 
 #import "BeaconManager.h"
 #import <EstimoteSDK/ESTBeaconManager.h>
-
+#import "ErrorHelper.h"
 
 @interface BeaconManager() <ESTBeaconManagerDelegate>
 
@@ -50,21 +50,22 @@
     } else if([ESTBeaconManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways) {
         [self.beaconManager startRangingBeaconsInRegion:self.region];
     } else if([ESTBeaconManager authorizationStatus] == kCLAuthorizationStatusDenied) {
-        NSLog(@"You have denied access to location services. Change this in app settings.");
+        displayErrorOnMainQueue(nil, @"Beacons module error!");
     } else if([ESTBeaconManager authorizationStatus] == kCLAuthorizationStatusRestricted) {
-        NSLog(@"You have no access to location services.");
+        displayErrorOnMainQueue(nil, @"You have no access to location services.");
+
     }
 }
 
 - (void)beaconManager:(ESTBeaconManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(ESTBeaconRegion *)region
 {
     self.beaconsArray = beacons;
-    NSLog(@"in range :%lu", (unsigned long)self.beaconsArray.count);
 }
 
 -(void)beaconManager:(ESTBeaconManager *)manager rangingBeaconsDidFailForRegion:(ESTBeaconRegion *)region withError:(NSError *)error
 {
-    NSLog(@"%@", [error localizedDescription]);
+    displayErrorOnMainQueue(error, @"Beacons module error!");
+    
 }
 
 -(void)dealloc

@@ -350,10 +350,22 @@
                         <color key="backgroundColor" red="0.0" green="0.67058825489999996" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="F6N-Ug-vue" secondAttribute="centerX" id="5Zx-QB-OJK"/>
-                            <constraint firstItem="F6N-Ug-vue" firstAttribute="top" secondItem="FGp-Jb-FkL" secondAttribute="bottom" constant="65" id="Bu0-mC-Irr"/>
-                            <constraint firstItem="VQt-pX-D3w" firstAttribute="top" secondItem="F6N-Ug-vue" secondAttribute="bottom" constant="30" id="KPC-8O-8RY"/>
+                            <constraint firstItem="F6N-Ug-vue" firstAttribute="top" secondItem="FGp-Jb-FkL" secondAttribute="bottom" priority="700" constant="65" id="Bu0-mC-Irr"/>
+                            <constraint firstItem="VQt-pX-D3w" firstAttribute="top" secondItem="F6N-Ug-vue" secondAttribute="bottom" priority="750" constant="30" id="KPC-8O-8RY"/>
                             <constraint firstAttribute="centerX" secondItem="VQt-pX-D3w" secondAttribute="centerX" id="M77-Mj-x80"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="VQt-pX-D3w" secondAttribute="bottom" id="N7R-gH-t5V"/>
+                            <constraint firstItem="rTZ-s5-V9o" firstAttribute="top" relation="greaterThanOrEqual" secondItem="VQt-pX-D3w" secondAttribute="bottom" constant="8" symbolic="YES" id="OFW-jQ-91F"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="N7R-gH-t5V"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="N7R-gH-t5V"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vqf-y5-2zy" userLabel="First Responder" sceneMemberID="firstResponder"/>

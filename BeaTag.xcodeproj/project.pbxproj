@@ -11,6 +11,7 @@
 		170DC08B19E96C1D0030EE16 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 170DC08A19E96C1D0030EE16 /* 2.png */; };
 		170DC08E19E976950030EE16 /* AddEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 170DC08D19E976950030EE16 /* AddEventTableViewController.m */; };
 		170DC09019E97EF60030EE16 /* BeaconTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 170DC08F19E97EF60030EE16 /* BeaconTest.m */; };
+		170DC09319E9C7F90030EE16 /* ErrorHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = 170DC09219E9C7F90030EE16 /* ErrorHelper.c */; };
 		1786ACD019E8CD7D00C76D47 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1786ACCF19E8CD7D00C76D47 /* 1.png */; };
 		1786ACD419E8D12A00C76D47 /* SelectBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */; };
 		1786ACD619E8D50200C76D47 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1786ACD519E8D50200C76D47 /* checkmark.png */; };
@@ -54,9 +55,11 @@
 		170DC08C19E976950030EE16 /* AddEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventTableViewController.h; sourceTree = "<group>"; };
 		170DC08D19E976950030EE16 /* AddEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventTableViewController.m; sourceTree = "<group>"; };
 		170DC08F19E97EF60030EE16 /* BeaconTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconTest.m; sourceTree = "<group>"; };
+		170DC09119E9C51B0030EE16 /* ErrorHelper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = ErrorHelper.h; sourceTree = "<group>"; };
+		170DC09219E9C7F90030EE16 /* ErrorHelper.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = ErrorHelper.c; sourceTree = "<group>"; };
 		1786ACCF19E8CD7D00C76D47 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		1786ACD219E8D12A00C76D47 /* SelectBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBeaconViewController.h; sourceTree = "<group>"; };
-		1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBeaconViewController.m; sourceTree = "<group>"; };
+		1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = SelectBeaconViewController.m; sourceTree = "<group>"; };
 		1786ACD519E8D50200C76D47 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		17DFEB5E19E8D82D00F941E2 /* SelectActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectActionViewController.h; sourceTree = "<group>"; };
 		17DFEB5F19E8D82D00F941E2 /* SelectActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectActionViewController.m; sourceTree = "<group>"; };
@@ -190,6 +193,8 @@
 				17E9EBB619E8A00D00078A64 /* BeaconManager.m */,
 				A5CCD97019E8F1A7002C64C2 /* AppManager.h */,
 				A5CCD97119E8F1A7002C64C2 /* AppManager.m */,
+				170DC09119E9C51B0030EE16 /* ErrorHelper.h */,
+				170DC09219E9C7F90030EE16 /* ErrorHelper.c */,
 			);
 			path = BeaTag;
 			sourceTree = "<group>";
@@ -440,6 +445,7 @@
 				17E9EBB719E8A00D00078A64 /* BeaconManager.m in Sources */,
 				170DC08E19E976950030EE16 /* AddEventTableViewController.m in Sources */,
 				A5CCD96819E8AB1B002C64C2 /* Beacon.m in Sources */,
+				170DC09319E9C7F90030EE16 /* ErrorHelper.c in Sources */,
 				A5CCD96C19E8C9D8002C64C2 /* Image.m in Sources */,
 				17DFEB6719E8E59900F941E2 /* PhotoCaptureViewController.m in Sources */,
 				17DFEB6E19E8F60400F941E2 /* PhotoGalleryViewController.m in Sources */,

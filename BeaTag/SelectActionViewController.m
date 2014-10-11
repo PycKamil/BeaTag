@@ -11,6 +11,7 @@
 #import "PhotoGalleryViewController.h"
 #import "AppManager.h"
 #import "Image.h"
+#import "ErrorHelper.h"
 
 @interface SelectActionViewController () <MWPhotoBrowserDelegate>
 
@@ -32,6 +33,10 @@
 -(void)loadPhotos:(BOOL)filtered
 {
     PFArrayResultBlock completition = ^(NSArray *objects, NSError *error) {
+        if (error) {
+            displayErrorOnMainQueue(error, @"Loading photos failed!");
+        }
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [self processPhotos:objects];
             [self.galleryVC reloadData];

@@ -11,6 +11,7 @@
 #import "Event.h"
 #import "EventTableViewCell.h"
 #import "AppManager.h"
+#import "ErrorHelper.h"
 
 @interface EventsListViewController ()
 
@@ -60,6 +61,10 @@
     
     [Event getListOfEventsWithBlock:^(NSArray *objects, NSError *error) {
         self.events = objects;
+        if (error) {
+            displayErrorOnMainQueue(error, @"Events download failed!");
+        }
+        
        dispatch_async(dispatch_get_main_queue(), ^{
            
            [self.tableView reloadData];
@@ -79,6 +84,10 @@
         } else {
             NSLog(@"User logged in through Facebook!");
         }
+        if (error) {
+            displayErrorOnMainQueue(error, @"User login failed!");
+        }
+        
     }];
 }
 

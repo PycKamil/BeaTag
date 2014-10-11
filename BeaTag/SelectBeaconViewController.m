@@ -9,6 +9,7 @@
 #import "SelectBeaconViewController.h"
 #import "Beacon.h"
 #import "AppManager.h"
+#import "ErrorHelper.h"
 
 @interface SelectBeaconViewController ()
 
@@ -39,6 +40,9 @@
                 [self performSegueWithIdentifier:@"actionSelection" sender:self];
             } else {
                 [self performSelectorOnMainThread:@selector(showErrorMessage) withObject:NO waitUntilDone:NO];
+            }
+            if (error) {
+                displayErrorOnMainQueue(error, @"Events download failed!");
             }
         }];
     } else {

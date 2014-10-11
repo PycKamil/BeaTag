@@ -11,6 +11,7 @@
 #import "AppManager.h"
 #import <THObserversAndBinders/THObserver.h>
 #import "BeaconManager.h"
+#import "ErrorHelper.h"
 
 static char * const AVCaptureStillImageIsCapturingStillImageContext = "AVCaptureStillImageIsCapturingStillImageContext";
 
@@ -339,20 +340,6 @@ void writeJPEGDataToCameraRoll(NSData* data, NSDictionary* metadata)
 }
 */
 
-void displayErrorOnMainQueue(NSError *error, NSString *message)
-{
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
-        UIAlertView* alert = [UIAlertView new];
-        if(error) {
-            alert.title = [NSString stringWithFormat:@"%@ (%zd)", message, error.code];
-            alert.message = [error localizedDescription];
-        } else {
-            alert.title = message;
-        }
-        [alert addButtonWithTitle:@"Dismiss"];
-        [alert show];
-    });
-}
 
 - (BOOL)prefersStatusBarHidden
 {
