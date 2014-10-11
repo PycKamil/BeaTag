@@ -1,19 +1,27 @@
 PODS:
   - Bolts (1.1.3)
   - EstimoteSDK (2.1.5)
+  - Facebook-iOS-SDK (3.17.0):
+    - Bolts
   - OCMock (3.1.1)
   - Parse (1.4.1):
     - Bolts (~> 1.1.2)
+  - ParseFacebookUtils (1.4.1):
+    - Facebook-iOS-SDK (~> 3.17.0)
+    - Parse (~> 1.4.1)
 
 DEPENDENCIES:
   - EstimoteSDK (~> 2.1)
   - OCMock (~> 3.1)
   - Parse (~> 1.4)
+  - ParseFacebookUtils
 
 SPEC CHECKSUMS:
   Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
   EstimoteSDK: 1a8184137ab16615b982efd0804aa711a0262ce7
+  Facebook-iOS-SDK: f20274d809f112ba540842e2b6cbe50128d51b7b
   OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
   Parse: db1a09c832b7509edcc88a65dc07229f5e578c73
+  ParseFacebookUtils: 625da00d0f36a34e25ebae7f543385a0f19ccf1e
 
 COCOAPODS: 0.34.2

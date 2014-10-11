@@ -5,6 +5,7 @@ target "BeaTag" do
 
 pod 'EstimoteSDK', '~> 2.1'
 pod 'Parse', '~> 1.4'
+pod 'ParseFacebookUtils'
 
 end
 
