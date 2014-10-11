@@ -50,13 +50,11 @@ NSString *const parseImageClassName = @"Image";
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
-- (void)saveImage
+- (void)saveImage:(UIImage *)image
 {
-    UIImage *image = [UIImage imageNamed:@"event_icon.png"];
     NSData *imageData = UIImageJPEGRepresentation(image, 0.05f);
     
     PFFile *file = [PFFile fileWithData:imageData];
-//    PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
     
     [self uploadImage:file];
 }
