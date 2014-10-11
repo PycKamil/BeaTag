@@ -94,6 +94,12 @@
                     <navigationItem key="navigationItem" title="Events" id="0xQ-tb-sO7">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yeg-kg-0lw"/>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="4gh-gU-bWT">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="r9C-4L-Twc" eventType="valueChanged" id="o72-b4-KIv"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zK5-mo-9Kr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

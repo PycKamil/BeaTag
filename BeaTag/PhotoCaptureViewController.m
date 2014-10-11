@@ -171,6 +171,16 @@ static AVCaptureVideoOrientation avOrientationForDeviceOrientation(UIDeviceOrien
      ];
 }
 
+
+#pragma mark - View lifecycle
+
+- (void)dealloc
+{
+    [self teardownAVCapture];
+    flashView = nil;
+}
+
+
 - (void)teardownAVCapture
 {
     [self.session stopRunning];

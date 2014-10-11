@@ -23,6 +23,14 @@
 
 }
 
+
+-(IBAction)refresh:(UIRefreshControl *)sender
+{
+    [self.tableView reloadData];
+    sleep(2);
+    [sender endRefreshing];
+}
+
 -(void)loginUser
 {
     [PFFacebookUtils logInWithPermissions:@[@"email"] block:^(PFUser *user, NSError *error) {
