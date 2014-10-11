@@ -22,22 +22,13 @@ NSString *const parseBeaconClassName = @"Beacon";
         self.parseObject = parseObject;
         
         self.objectId = parseObject[@"objectId"];
+        self.beaconId = parseObject[@"beaconId"];
         self.minor = parseObject[@"minor"];
         self.major = parseObject[@"major"];
         self.uuid = parseObject[@"uuid"];
     }
     return self;
     
-}
-
-+ (Beacon *)findByUuidSync:(NSString *)uuid
-{
-    PFQuery * query = [PFQuery queryWithClassName:parseBeaconClassName];
-    [query whereKey:@"uuid" equalTo:uuid];
-    
-    NSArray *obj = [query findObjects];
-
-    return [[Beacon alloc] initWithParseObject:[obj objectAtIndex:0]];
 }
 
 + (void)findByMinor:(NSNumber *)minor AndMajor:(NSNumber *)major WithBlock:(PFArrayResultBlock)callback
@@ -49,5 +40,16 @@ NSString *const parseBeaconClassName = @"Beacon";
     
     [query findObjectsInBackgroundWithBlock:callback];
 }
+
+
++ (void)findByBeaconId:(NSNumber *)beaconId WithBlock:(PFArrayResultBlock)callback
+{
+    PFQuery * query = [PFQuery queryWithClassName:parseBeaconClassName];
+    [query whereKey:@"beaconId" equalTo:beaconId];
+
+    [query findObjectsInBackgroundWithBlock:callback];
+}
+
+
 
 @end
