@@ -6,19 +6,19 @@
 //  Copyright (c) 2014 Kamil Pyć. All rights reserved.
 //
 
-#import "UserManager.h"
+#import "AppManager.h"
 
-@implementation UserManager
+@implementation AppManager
 
-static UserManager *instance;
+static AppManager *instance;
 
 
-+ (UserManager *)sharedInstance
++ (AppManager *)sharedInstance
 {
-    static UserManager *sharedInstance = nil;
+    static AppManager *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[UserManager alloc] init];
+        sharedInstance = [[AppManager alloc] init];
         // init
     });
     return sharedInstance;

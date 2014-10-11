@@ -10,13 +10,13 @@
 #import "Beacon.h"
 #import "Event.h"
 
-@interface UserManager : NSObject
+@interface AppManager : NSObject
 
 @property (strong) Beacon* usersBeacon;
 @property (strong) Event* selectedEvent;
+@property (nonatomic, strong) BeaconManager *beaconManager;
 
-
-+ (UserManager *)sharedInstance;
++ (AppManager *)sharedInstance;
 
 - (void)uploadEvent:(Event *)event;
 - (NSArray *)getListOfEvents;

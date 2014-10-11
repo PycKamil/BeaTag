@@ -13,8 +13,9 @@
 
 @interface Image : NSObject
 
-@property (strong) NSString* objectId;
-@property (strong) PFObject *parseObject;
+@property (nonatomic, strong) NSString* objectId;
+@property (nonatomic, strong) PFObject *parseObject;
+@property (nonatomic, strong) UIImage *image;
 
 
 - (instancetype)initWithParseObject:(PFObject *)parseObject;
