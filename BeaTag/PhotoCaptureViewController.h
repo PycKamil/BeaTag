@@ -14,4 +14,6 @@
 @property (strong, nonatomic, readonly) AVCaptureSession* session;
 @property (strong, nonatomic, readonly) AVCaptureVideoPreviewLayer* previewLayer;
 
+- (IBAction)takePicture:(id)sender; // grabs a still image and applies the most recent metadata
+
 @end

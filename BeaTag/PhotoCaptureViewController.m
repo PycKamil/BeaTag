@@ -7,8 +7,10 @@
 //
 
 #import "PhotoCaptureViewController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 static char * const AVCaptureStillImageIsCapturingStillImageContext = "AVCaptureStillImageIsCapturingStillImageContext";
+
 
 
 @interface PhotoCaptureViewController ()
@@ -20,6 +22,18 @@ static char * const AVCaptureStillImageIsCapturingStillImageContext = "AVCapture
 @end
 
 @implementation PhotoCaptureViewController
+
+
+// converts UIDeviceOrientation to AVCaptureVideoOrientation
+static AVCaptureVideoOrientation avOrientationForDeviceOrientation(UIDeviceOrientation deviceOrientation)
+{
+    AVCaptureVideoOrientation result = AVCaptureVideoOrientationPortrait;
+    if ( deviceOrientation == UIDeviceOrientationLandscapeLeft )
+        result = AVCaptureVideoOrientationLandscapeRight;
+    else if ( deviceOrientation == UIDeviceOrientationLandscapeRight )
+        result = AVCaptureVideoOrientationLandscapeLeft;
+    return result;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,7 +52,7 @@ static char * const AVCaptureStillImageIsCapturingStillImageContext = "AVCapture
     [rootLayer setMasksToBounds:YES];
     self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.session];
     [self.previewLayer setBackgroundColor:[[UIColor blackColor] CGColor]];
-    [self.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspect];
+    [self.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     [self.previewLayer setFrame:[rootLayer bounds]];
     [rootLayer addSublayer:self.previewLayer];
     
@@ -46,6 +60,44 @@ static char * const AVCaptureStillImageIsCapturingStillImageContext = "AVCapture
     [self.stillImageOutput addObserver:self forKeyPath:@"capturingStillImage" options:NSKeyValueObservingOptionNew context:AVCaptureStillImageIsCapturingStillImageContext];
     
     [self.session startRunning];
+    
+    self.stillImageOutput = [AVCaptureStillImageOutput new];
+    if ( [self.session canAddOutput:self.stillImageOutput] ) {
+        [self.session addOutput:self.stillImageOutput];
+    } else {
+        self.stillImageOutput = nil;
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self updatePreviewBounds];
+}
+
+-(void)updatePreviewBounds
+{
+    CALayer *rootLayer = self.previewView.layer;
+    [self.previewLayer setFrame:[rootLayer bounds]];
+    
+    if ([self.previewLayer.connection isVideoOrientationSupported])
+    {
+        UIDeviceOrientation curDeviceOrientation = [UIDevice currentDevice].orientation;
+        AVCaptureVideoOrientation avcaptureOrientation = avOrientationForDeviceOrientation(curDeviceOrientation);
+        [self.previewLayer.connection setVideoOrientation:avcaptureOrientation];
+    }
+}
+
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        [self     updatePreviewBounds];
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        [self     updatePreviewBounds];
+    }];
+    
+    [super viewWillTransitionToSize: size withTransitionCoordinator: coordinator];
 }
 
 - (void) updateCameraSelection
@@ -113,6 +165,51 @@ static char * const AVCaptureStillImageIsCapturingStillImageContext = "AVCapture
     // Dispose of any resources that can be recreated.
 }
 
+
+// writes the image to the asset library
+void writeJPEGDataToCameraRoll(NSData* data, NSDictionary* metadata)
+{
+    ALAssetsLibrary *library = [ALAssetsLibrary new];
+    [library writeImageDataToSavedPhotosAlbum:data metadata:metadata completionBlock:^(NSURL *assetURL, NSError *error) {
+        if (error) {
+            displayErrorOnMainQueue(error, @"Save to camera roll failed");
+        }
+    }];
+}
+
+- (IBAction)takePicture:(id)sender
+{
+    // Find out the current orientation and tell the still image output.
+    AVCaptureConnection *stillImageConnection = [self.stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
+    UIDeviceOrientation curDeviceOrientation = [[UIDevice currentDevice] orientation];
+    AVCaptureVideoOrientation avcaptureOrientation = avOrientationForDeviceOrientation(curDeviceOrientation);
+    [stillImageConnection setVideoOrientation:avcaptureOrientation];
+    [stillImageConnection setAutomaticallyAdjustsVideoMirroring:NO];
+    [stillImageConnection setVideoMirrored:[self.previewLayer.connection isVideoMirrored]];
+    [self.stillImageOutput setOutputSettings:[NSDictionary dictionaryWithObject:AVVideoCodecJPEG
+                                                                             forKey:AVVideoCodecKey]];
+    
+    [self.stillImageOutput captureStillImageAsynchronouslyFromConnection:stillImageConnection completionHandler:
+     ^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+         if (error) {
+             displayErrorOnMainQueue(error, @"Take picture failed");
+         } else if ( ! imageDataSampleBuffer ) {
+             displayErrorOnMainQueue(nil, @"Take picture failed: received null sample buffer");
+         } else {
+             
+                 // Simple JPEG case, just save it
+                 NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+                 NSDictionary* attachments = (__bridge_transfer NSDictionary*) CMCopyDictionaryOfAttachments(kCFAllocatorDefault, imageDataSampleBuffer, kCMAttachmentMode_ShouldPropagate);
+                 writeJPEGDataToCameraRoll(jpegData, attachments);
+                 
+            }
+         
+     }];
+}
+
+
+
+
 /*
 #pragma mark - Navigation
 
@@ -122,5 +219,20 @@ static char * const AVCaptureStillImageIsCapturingStillImageContext = "AVCapture
     // Pass the selected object to the new view controller.
 }
 */
+
+void displayErrorOnMainQueue(NSError *error, NSString *message)
+{
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        UIAlertView* alert = [UIAlertView new];
+        if(error) {
+            alert.title = [NSString stringWithFormat:@"%@ (%zd)", message, error.code];
+            alert.message = [error localizedDescription];
+        } else {
+            alert.title = message;
+        }
+        [alert addButtonWithTitle:@"Dismiss"];
+        [alert show];
+    });
+}
 
 @end
