@@ -19,6 +19,8 @@ NSString *const parseBeaconClassName = @"Beacon";
     
     self = [super init];
     if (self) {
+        self.parseObject = parseObject;
+        
         self.objectId = parseObject[@"objectId"];
         self.minor = parseObject[@"minor"];
         self.major = parseObject[@"major"];

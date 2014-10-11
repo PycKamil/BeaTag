@@ -18,6 +18,8 @@ NSString *const parseEventClassName = @"Event";
     
     self = [super init];
     if (self) {
+        self.parseObject = parseObject;
+
         self.objectId = parseObject[@"objectId"];
         self.name = parseObject[@"name"];
 

@@ -17,16 +17,37 @@ NSString *const parseImageClassName = @"Image";
     
     self = [super init];
     if (self) {
+        self.parseObject = parseObject;
+
         self.objectId = parseObject[@"objectId"];
     }
     return self;
     
 }
 
-- (void)findImagesForBeacon:(Beacon *)beacon WithBlock:(PFArrayResultBlock)callback
+- (void)findImagesForBeaconId:(NSString *)beaconId WithBlock:(PFArrayResultBlock)callback
 {
-    
+    PFObject* beacon = [PFObject objectWithoutDataWithClassName:parseImageClassName objectId:beaconId];
+    [self findImagesForBeacon:beaconId WithBlock:callback];
 }
 
+
+- (void)findImagesForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback
+{
+    PFQuery* query = [PFQuery queryWithClassName:parseBeaconClassName];
+    [query whereKey:@"beacon" equalTo:beacon];
+    
+    [query findObjectsInBackgroundWithBlock:callback];
+}
+
+- (void)findImagesInEvent:(PFObject *)event ForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback
+{
+    PFQuery* query = [PFQuery queryWithClassName:parseBeaconClassName];
+    [quert whereKey:@"event" equalTo:event];
+    [query whereKey:@"beacon" equalTo:beacon];
+    
+    
+    [query findObjectsInBackgroundWithBlock:callback];
+}
 
 @end

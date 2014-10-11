@@ -14,9 +14,15 @@
 @interface Image : NSObject
 
 @property (strong) NSString* objectId;
+@property (strong) PFObject *parseObject;
+
 
 - (instancetype)initWithParseObject:(PFObject *)parseObject;
 
-- (void)findImagesForBeacon:(Beacon *)beacon WithBlock:(PFArrayResultBlock)callback;
+- (void)findImagesForBeaconId:(NSString *)beaconId WithBlock:(PFArrayResultBlock)callback;
+
+- (void)findImagesForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback;
+
+- (void)findImagesInEvent:(PFObject *)event ForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback;
 
 @end
