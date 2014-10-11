@@ -8,9 +8,12 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "BeaconManager.h"
 
 @interface AppDelegate ()
-
+{
+    BeaconManager *manager;
+}
 @end
 
 @implementation AppDelegate
@@ -20,6 +23,8 @@
     [Parse setApplicationId:@"OZIPO1RjXP16EK2Q1Rl0nQGSfhM05rmBpzW60dAL"
                   clientKey:@"zH4PBf3VSNuvPpp7gvZ199pNdVDmKvUtBuuwTbbd"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    manager = [[BeaconManager alloc]init];
     
     return YES;
 }

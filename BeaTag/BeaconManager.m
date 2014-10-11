@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) ESTBeaconManager *beaconManager;
 @property (nonatomic, strong) ESTBeaconRegion *region;
+@property (nonatomic, strong) NSArray *beaconsArray;
 
 
 @end
@@ -35,12 +36,11 @@
     self.beaconManager = [[ESTBeaconManager alloc] init];
     self.beaconManager.delegate = self;
     self.region = [[ESTBeaconRegion alloc]initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID identifier:@"BeaTagRegion"];
-    [self.beaconManager startEstimoteBeaconsDiscoveryForRegion:self.region];
 }
 
 - (void)beaconManager:(ESTBeaconManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-        [self startRangingBeacons];
+    [self startRangingBeacons];
 }
 
 -(void)startRangingBeacons
@@ -54,6 +54,23 @@
     } else if([ESTBeaconManager authorizationStatus] == kCLAuthorizationStatusRestricted) {
         NSLog(@"You have no access to location services.");
     }
+}
+
+- (void)beaconManager:(ESTBeaconManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(ESTBeaconRegion *)region
+{
+    self.beaconsArray = beacons;
+    NSLog(@"in range :%d", self.beaconsArray.count);
+}
+
+-(void)beaconManager:(ESTBeaconManager *)manager rangingBeaconsDidFailForRegion:(ESTBeaconRegion *)region withError:(NSError *)error
+{
+    NSLog(@"%@", [error localizedDescription]);
+}
+
+-(void)dealloc
+{
+    [self.beaconManager stopRangingBeaconsInRegion:self.region];
+    [self.beaconManager stopEstimoteBeaconDiscovery];
 }
 
 @end
