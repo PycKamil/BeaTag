@@ -11,18 +11,17 @@
 @interface Beacon : NSObject
 
 @property (strong) NSString *objectId;
+@property (strong) NSNumber *beaconId;
+
 @property (strong) NSNumber *minor;
 @property (strong) NSNumber *major;
-
 @property (strong) NSString *uuid;
 
 @property (strong) PFObject *parseObject;
 
 - (instancetype)initWithParseObject:(PFObject *)parseObject;
 
-+ (Beacon *)findByUuidSync:(NSString *)uuid;
-
 + (void)findByMinor:(NSNumber *)minor AndMajor:(NSNumber *)major WithBlock:(PFArrayResultBlock)callback;
-
++ (void)findByBeaconId:(NSNumber *)beaconId WithBlock:(PFArrayResultBlock)callback;
 
 @end
