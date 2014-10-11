@@ -28,6 +28,6 @@
 
 - (void)saveImage:(UIImage *)image;
 
-- (void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons];
+- (void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "Image.h"
+#import "Beacon.h"
 
 @implementation Image
 
@@ -112,7 +113,7 @@ typedef void(^ImageResultBlock)(UIImage *image);
 
 -(void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons
 {
-    
+    [self saveImage:image];
 }
 
 @end
