@@ -70,7 +70,7 @@ NSString *const parseImageClassName = @"Image";
             [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
                 }
-                else{
+                else {
                     NSLog(@"Error: %@ %@", error, [error userInfo]);
                 }
             }];
@@ -80,6 +80,26 @@ NSString *const parseImageClassName = @"Image";
         }
     } progressBlock:^(int percentDone) {
     }];
+}
+
+typedef void(^ImageResultBlock)(UIImage *image);
+
+
+- (void)getImageDataWithBlock:(ImageResultBlock)block
+{
+    if (self.image) {
+        block(self.image);
+    } else {
+        PFFile *photoFile = [PFFile new];
+        [photoFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if(!error) {
+                self.image = [UIImage imageWithData:data];
+            }
+            else {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+    }
 }
 
 - (void)saveToCache:(NSDictionary *)imagesInEvent
