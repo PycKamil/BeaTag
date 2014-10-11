@@ -8,6 +8,7 @@
 
 #import "PhotoGalleryViewController.h"
 #import <MWPhotoBrowser/MWPhotoBrowserPrivate.h>
+#import "AppManager.h"
 
 @interface PhotoGalleryViewController ()
 
@@ -19,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = [NSString stringWithFormat:@"%@ Gallery",[[[AppManager sharedInstance] selectedEvent] name] ];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(filterPhotos)];
 }
 

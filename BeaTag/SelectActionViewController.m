@@ -9,6 +9,7 @@
 
 #import "SelectActionViewController.h"
 #import "PhotoGalleryViewController.h"
+#import "AppManager.h"
 
 @interface SelectActionViewController () <MWPhotoBrowserDelegate>
 
@@ -21,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.photos  = @[[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3629/3339128908_7aecabc34b.jpg"]],[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b.jpg"]] ];
+    self.navigationItem.title = [[[AppManager sharedInstance] selectedEvent] name];
     // Do any additional setup after loading the view.
 }
 
