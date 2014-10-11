@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Beacon.h"
 #import "Event.h"
+#import "BeaconManager.h"
 
 @interface AppManager : NSObject
 
