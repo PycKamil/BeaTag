@@ -188,7 +188,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Z7F-6r-rSm" kind="show" id="zwu-25-Kmp"/>
+                                    <segue destination="Z7F-6r-rSm" kind="presentation" id="zwu-25-Kmp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6N-Ug-vue">
@@ -221,19 +221,49 @@
             </objects>
             <point key="canvasLocation" x="1512" y="157"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo Capture View Controller-->
         <scene sceneID="dK8-PE-j3k">
             <objects>
-                <viewController id="Z7F-6r-rSm" sceneMemberID="viewController">
+                <viewController id="Z7F-6r-rSm" customClass="PhotoCaptureViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hNZ-zK-7By"/>
                         <viewControllerLayoutGuide type="bottom" id="m4v-KV-F6r"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="idT-xu-Ar2">
+                    <view key="view" contentMode="scaleToFill" id="fT3-ZY-3kf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JSr-KA-RSX">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byL-Uw-2rI">
+                                <rect key="frame" x="250" y="477" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="EVM-Vm-hrS"/>
+                                    <constraint firstAttribute="width" constant="100" id="egQ-by-KWE"/>
+                                </constraints>
+                                <state key="normal" image="camera-shutter.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePicture:" destination="Z7F-6r-rSm" eventType="touchUpInside" id="bDc-n6-v61"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JSr-KA-RSX" firstAttribute="leading" secondItem="fT3-ZY-3kf" secondAttribute="leading" id="KTA-ko-lqd"/>
+                            <constraint firstItem="JSr-KA-RSX" firstAttribute="top" secondItem="hNZ-zK-7By" secondAttribute="bottom" id="Mfr-St-31t"/>
+                            <constraint firstItem="m4v-KV-F6r" firstAttribute="top" secondItem="byL-Uw-2rI" secondAttribute="bottom" constant="23" id="fJb-Y2-9Ld"/>
+                            <constraint firstAttribute="trailing" secondItem="JSr-KA-RSX" secondAttribute="trailing" id="jgZ-Pn-uvP"/>
+                            <constraint firstAttribute="centerX" secondItem="byL-Uw-2rI" secondAttribute="centerX" id="oDn-Mj-VqO"/>
+                            <constraint firstItem="m4v-KV-F6r" firstAttribute="top" secondItem="JSr-KA-RSX" secondAttribute="bottom" id="u8R-Br-QaG"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="previewView" destination="JSr-KA-RSX" id="K0n-Mb-jhn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDX-B0-O0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -241,6 +271,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera-shutter.png" width="300" height="300"/>
         <image name="camera.png" width="300" height="300"/>
         <image name="checkmark.png" width="300" height="300"/>
         <image name="event_icon.png" width="196" height="198"/>
