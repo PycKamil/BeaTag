@@ -148,7 +148,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fmj-9g-bO0" kind="show" id="Yh6-hg-vcu"/>
+                                    <action selector="beaconSelectedPressed" destination="vfQ-Uj-ShN" eventType="touchUpInside" id="BXI-oR-UkP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -164,6 +164,7 @@
                     </view>
                     <connections>
                         <outlet property="textField" destination="saH-Yj-DhS" id="5Pp-oj-LNA"/>
+                        <segue destination="fmj-9g-bO0" kind="show" identifier="actionSelection" id="ECp-gv-LJz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4i-t5-e9X" userLabel="First Responder" sceneMemberID="firstResponder"/>
