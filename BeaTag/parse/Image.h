@@ -25,6 +25,6 @@
 
 - (void)findImagesInEvent:(PFObject *)event ForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback;
 
-- (void)saveImage;
+- (void)saveImage:(UIImage *)image;
 
 @end
