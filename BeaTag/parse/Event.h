@@ -14,7 +14,10 @@
 
 @property (strong) NSString* objectId;
 @property (strong) NSString* name;
-@property (strong) PFObject *parseObject;
+@property (strong) PFObject* parseObject;
+
+@property (strong) NSString* photoAddress;
+@property (strong) NSString* dateString;
 
 
 - (instancetype)initWithParseObject:(PFObject *)parseObject;

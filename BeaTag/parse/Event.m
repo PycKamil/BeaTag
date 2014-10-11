@@ -22,19 +22,21 @@ NSString *const parseEventClassName = @"Event";
 
         self.objectId = parseObject[@"objectId"];
         self.name = parseObject[@"name"];
+        self.dateString = parseObject[@"data"];
+        self.photoAddress = parseObject[@"photoAddress"];
 
     }
     return self;
     
 }
 
-+ (BOOL)saveToCacheEvents:(NSArray *)events
-{
-    NSString *cacheDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    
-    NSString *path = [cacheDirectoryPath stringByAppendingPathComponent:@"events.out"];
-    
-    return [events writeToFile:path atomically:YES];
-}
+//+ (BOOL)saveToCacheEvents:(NSArray *)events
+//{
+//    NSString *cacheDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//    
+//    NSString *path = [cacheDirectoryPath stringByAppendingPathComponent:@"events.out"];
+//    
+//    return [events writeToFile:path atomically:YES];
+//}
 
 @end
