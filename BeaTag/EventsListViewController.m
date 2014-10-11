@@ -8,27 +8,56 @@
 
 #import "EventsListViewController.h"
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+#import "Event.h"
+#import "EventTableViewCell.h"
 
 @interface EventsListViewController ()
 
+@property (nonatomic, strong) NSArray *events;
 
 @end
 
 @implementation EventsListViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self loginUser];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-
+    [self.refreshControl beginRefreshing];
+    [self refresh:self.refreshControl];
 }
 
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *const cellID = @"eventCell";
+    
+    EventTableViewCell *eventCell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    
+    Event *event = [[Event alloc]initWithParseObject:self.events[indexPath.row]];
+    
+    eventCell.titleLabel.text = event.name;
+    
+    return eventCell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.events.count;
+}
 
 -(IBAction)refresh:(UIRefreshControl *)sender
 {
-    [self.tableView reloadData];
-    sleep(2);
-    [sender endRefreshing];
+    
+    [Event getListOfEventsWithBlock:^(NSArray *objects, NSError *error) {
+        self.events = objects;
+       dispatch_async(dispatch_get_main_queue(), ^{
+           
+           [self.tableView reloadData];
+           
+           [sender endRefreshing];
+       });
+    }];
 }
 
 -(void)loginUser

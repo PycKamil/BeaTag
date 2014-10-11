@@ -32,60 +32,60 @@
         <scene sceneID="kty-zE-ST6">
             <objects>
                 <tableViewController id="r9C-4L-Twc" customClass="EventsListViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" id="AeC-dF-jWt">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" id="AeC-dF-jWt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.67058825489999996" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
                         <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.67058825489999996" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
-                        <sections>
-                            <tableViewSection id="10d-CE-zgi">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="bQ4-uR-Ylu">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bQ4-uR-Ylu" id="eeB-5y-b8o">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="p4h-cu-gat">
-                                                    <rect key="frame" x="12" y="10" width="47" height="43"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hack Zurich" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bM-Ho-eH8">
-                                                    <rect key="frame" x="67" y="10" width="490" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="490" id="Tc6-9F-V6k"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 - 12.10.2014" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqD-xt-dRW">
-                                                    <rect key="frame" x="67" y="33" width="414" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.0" green="0.67058825489999996" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="eventCell" id="bQ4-uR-Ylu" customClass="EventTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bQ4-uR-Ylu" id="eeB-5y-b8o">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="p4h-cu-gat">
+                                            <rect key="frame" x="12" y="10" width="47" height="43"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hack Zurich" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bM-Ho-eH8">
+                                            <rect key="frame" x="67" y="10" width="490" height="21"/>
                                             <constraints>
-                                                <constraint firstItem="8bM-Ho-eH8" firstAttribute="top" secondItem="eeB-5y-b8o" secondAttribute="topMargin" constant="2" id="JkJ-Fv-3u7"/>
-                                                <constraint firstItem="YqD-xt-dRW" firstAttribute="leading" secondItem="8bM-Ho-eH8" secondAttribute="leading" id="QAn-uY-Ql6"/>
-                                                <constraint firstItem="p4h-cu-gat" firstAttribute="top" secondItem="8bM-Ho-eH8" secondAttribute="top" id="Rp4-vH-hQg"/>
-                                                <constraint firstItem="YqD-xt-dRW" firstAttribute="top" secondItem="8bM-Ho-eH8" secondAttribute="bottom" constant="2" id="UmZ-3y-K9U"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="p4h-cu-gat" secondAttribute="bottom" constant="4" id="hRA-mN-T0F"/>
-                                                <constraint firstItem="p4h-cu-gat" firstAttribute="leading" secondItem="eeB-5y-b8o" secondAttribute="leadingMargin" constant="4" id="hdw-YM-Uyt"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="YqD-xt-dRW" secondAttribute="trailing" constant="78" id="qcG-DZ-wVJ"/>
-                                                <constraint firstItem="8bM-Ho-eH8" firstAttribute="leading" secondItem="eeB-5y-b8o" secondAttribute="leading" constant="67" id="s22-03-O5j"/>
-                                                <constraint firstItem="8bM-Ho-eH8" firstAttribute="leading" secondItem="p4h-cu-gat" secondAttribute="trailing" constant="8" symbolic="YES" id="yTI-D1-uG3"/>
+                                                <constraint firstAttribute="width" constant="490" id="Tc6-9F-V6k"/>
                                             </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.67058825492858887" blue="0.90196084976196289" alpha="1" colorSpace="deviceRGB"/>
-                                        <connections>
-                                            <segue destination="vfQ-Uj-ShN" kind="show" id="67T-bU-4Pq"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 - 12.10.2014" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqD-xt-dRW">
+                                            <rect key="frame" x="67" y="33" width="414" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.0" green="0.67058825489999996" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="8bM-Ho-eH8" firstAttribute="top" secondItem="eeB-5y-b8o" secondAttribute="topMargin" constant="2" id="JkJ-Fv-3u7"/>
+                                        <constraint firstItem="YqD-xt-dRW" firstAttribute="leading" secondItem="8bM-Ho-eH8" secondAttribute="leading" id="QAn-uY-Ql6"/>
+                                        <constraint firstItem="p4h-cu-gat" firstAttribute="top" secondItem="8bM-Ho-eH8" secondAttribute="top" id="Rp4-vH-hQg"/>
+                                        <constraint firstItem="YqD-xt-dRW" firstAttribute="top" secondItem="8bM-Ho-eH8" secondAttribute="bottom" constant="2" id="UmZ-3y-K9U"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="p4h-cu-gat" secondAttribute="bottom" constant="4" id="hRA-mN-T0F"/>
+                                        <constraint firstItem="p4h-cu-gat" firstAttribute="leading" secondItem="eeB-5y-b8o" secondAttribute="leadingMargin" constant="4" id="hdw-YM-Uyt"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="YqD-xt-dRW" secondAttribute="trailing" constant="78" id="qcG-DZ-wVJ"/>
+                                        <constraint firstItem="8bM-Ho-eH8" firstAttribute="leading" secondItem="eeB-5y-b8o" secondAttribute="leading" constant="67" id="s22-03-O5j"/>
+                                        <constraint firstItem="8bM-Ho-eH8" firstAttribute="leading" secondItem="p4h-cu-gat" secondAttribute="trailing" constant="8" symbolic="YES" id="yTI-D1-uG3"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.67058825492858887" blue="0.90196084976196289" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="logoImageView" destination="p4h-cu-gat" id="pxw-1w-bJ0"/>
+                                    <outlet property="subTitleLabel" destination="YqD-xt-dRW" id="52y-gy-atB"/>
+                                    <outlet property="titleLabel" destination="8bM-Ho-eH8" id="nF0-oG-r18"/>
+                                    <segue destination="vfQ-Uj-ShN" kind="show" id="67T-bU-4Pq"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="r9C-4L-Twc" id="Ogo-2K-QWI"/>
                             <outlet property="delegate" destination="r9C-4L-Twc" id="jha-zQ-FTf"/>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170DC08919E965010030EE16 /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 170DC08819E965010030EE16 /* EventTableViewCell.m */; };
 		1786ACD019E8CD7D00C76D47 /* event_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1786ACCF19E8CD7D00C76D47 /* event_icon.png */; };
 		1786ACD419E8D12A00C76D47 /* SelectBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */; };
 		1786ACD619E8D50200C76D47 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1786ACD519E8D50200C76D47 /* checkmark.png */; };
@@ -45,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		0A8E742089817C6BDD2C110A /* Pods-BeaTag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaTag.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaTag/Pods-BeaTag.release.xcconfig"; sourceTree = "<group>"; };
+		170DC08719E965010030EE16 /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
+		170DC08819E965010030EE16 /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		1786ACCF19E8CD7D00C76D47 /* event_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = event_icon.png; sourceTree = "<group>"; };
 		1786ACD219E8D12A00C76D47 /* SelectBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBeaconViewController.h; sourceTree = "<group>"; };
 		1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBeaconViewController.m; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 				17DFEB5F19E8D82D00F941E2 /* SelectActionViewController.m */,
 				17DFEB6C19E8F60400F941E2 /* PhotoGalleryViewController.h */,
 				17DFEB6D19E8F60400F941E2 /* PhotoGalleryViewController.m */,
+				170DC08719E965010030EE16 /* EventTableViewCell.h */,
+				170DC08819E965010030EE16 /* EventTableViewCell.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -420,6 +425,7 @@
 			files = (
 				17DFEB6019E8D82D00F941E2 /* SelectActionViewController.m in Sources */,
 				1786ACD419E8D12A00C76D47 /* SelectBeaconViewController.m in Sources */,
+				170DC08919E965010030EE16 /* EventTableViewCell.m in Sources */,
 				A5CCD97219E8F1A7002C64C2 /* AppManager.m in Sources */,
 				17E9EB9719E88DDA00078A64 /* EventsListViewController.m in Sources */,
 				17E9EBB719E8A00D00078A64 /* BeaconManager.m in Sources */,

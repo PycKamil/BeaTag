@@ -43,10 +43,7 @@ static AppManager *instance;
     
 }
 
-- (NSArray *)getListOfEvents
-{
-    return nil;
-}
+
 
 - (NSArray *)getUsersImagesInSelectedEvent
 {
