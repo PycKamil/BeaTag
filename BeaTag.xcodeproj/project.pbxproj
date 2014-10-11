@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		170DC08919E965010030EE16 /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 170DC08819E965010030EE16 /* EventTableViewCell.m */; };
-		1786ACD019E8CD7D00C76D47 /* event_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1786ACCF19E8CD7D00C76D47 /* event_icon.png */; };
+		170DC08B19E96C1D0030EE16 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 170DC08A19E96C1D0030EE16 /* 2.png */; };
+		1786ACD019E8CD7D00C76D47 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1786ACCF19E8CD7D00C76D47 /* 1.png */; };
 		1786ACD419E8D12A00C76D47 /* SelectBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */; };
 		1786ACD619E8D50200C76D47 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1786ACD519E8D50200C76D47 /* checkmark.png */; };
 		17DFEB6019E8D82D00F941E2 /* SelectActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DFEB5F19E8D82D00F941E2 /* SelectActionViewController.m */; };
@@ -48,7 +49,8 @@
 		0A8E742089817C6BDD2C110A /* Pods-BeaTag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaTag.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaTag/Pods-BeaTag.release.xcconfig"; sourceTree = "<group>"; };
 		170DC08719E965010030EE16 /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
 		170DC08819E965010030EE16 /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
-		1786ACCF19E8CD7D00C76D47 /* event_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = event_icon.png; sourceTree = "<group>"; };
+		170DC08A19E96C1D0030EE16 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		1786ACCF19E8CD7D00C76D47 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		1786ACD219E8D12A00C76D47 /* SelectBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBeaconViewController.h; sourceTree = "<group>"; };
 		1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBeaconViewController.m; sourceTree = "<group>"; };
 		1786ACD519E8D50200C76D47 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
@@ -121,7 +123,8 @@
 				17DFEB6319E8D8DE00F941E2 /* images.png */,
 				17DFEB6119E8D8D600F941E2 /* camera.png */,
 				1786ACD519E8D50200C76D47 /* checkmark.png */,
-				1786ACCF19E8CD7D00C76D47 /* event_icon.png */,
+				1786ACCF19E8CD7D00C76D47 /* 1.png */,
+				170DC08A19E96C1D0030EE16 /* 2.png */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -336,13 +339,14 @@
 			files = (
 				17E9EB9A19E88DDA00078A64 /* Main.storyboard in Resources */,
 				1786ACD619E8D50200C76D47 /* checkmark.png in Resources */,
+				170DC08B19E96C1D0030EE16 /* 2.png in Resources */,
 				17DFEB6919E8F0A400F941E2 /* camera-shutter.png in Resources */,
 				17E9EB9F19E88DDA00078A64 /* LaunchScreen.xib in Resources */,
 				17E9EB9C19E88DDA00078A64 /* Images.xcassets in Resources */,
 				17DFEB6419E8D8DE00F941E2 /* images.png in Resources */,
 				17DFEB6B19E8F50700F941E2 /* splashscreen-01.png in Resources */,
 				17DFEB6219E8D8D600F941E2 /* camera.png in Resources */,
-				1786ACD019E8CD7D00C76D47 /* event_icon.png in Resources */,
+				1786ACD019E8CD7D00C76D47 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,7 +22,7 @@ NSString *const parseEventClassName = @"Event";
 
         self.objectId = parseObject[@"objectId"];
         self.name = parseObject[@"name"];
-        self.dateString = parseObject[@"data"];
+        self.dateString = parseObject[@"date"];
         self.photoAddress = parseObject[@"photoAddress"];
 
     }

@@ -10,6 +10,7 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import "Event.h"
 #import "EventTableViewCell.h"
+#import "AppManager.h"
 
 @interface EventsListViewController ()
 
@@ -35,10 +36,18 @@
     EventTableViewCell *eventCell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
     Event *event = [[Event alloc]initWithParseObject:self.events[indexPath.row]];
-    
+
     eventCell.titleLabel.text = event.name;
+    eventCell.subTitleLabel.text = event.dateString;
+    eventCell.logoImageView.image = [UIImage imageNamed:event.photoAddress];
     
     return eventCell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Event *event = [[Event alloc]initWithParseObject:self.events[indexPath.row]];
+    [[AppManager sharedInstance] setSelectedEvent:event];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
