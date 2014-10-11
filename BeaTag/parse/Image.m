@@ -17,16 +17,71 @@ NSString *const parseImageClassName = @"Image";
     
     self = [super init];
     if (self) {
+        self.parseObject = parseObject;
+
         self.objectId = parseObject[@"objectId"];
     }
     return self;
     
 }
 
-- (void)findImagesForBeacon:(Beacon *)beacon WithBlock:(PFArrayResultBlock)callback
+- (void)findImagesForBeaconId:(NSString *)beaconId WithBlock:(PFArrayResultBlock)callback
 {
-    
+    PFObject* beacon = [PFObject objectWithoutDataWithClassName:parseImageClassName objectId:beaconId];
+    [self findImagesForBeacon:beacon WithBlock:callback];
 }
 
+
+- (void)findImagesForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback
+{
+    PFQuery* query = [PFQuery queryWithClassName:parseImageClassName];
+    [query whereKey:@"beacon" equalTo:beacon];
+    
+    [query findObjectsInBackgroundWithBlock:callback];
+}
+
+- (void)findImagesInEvent:(PFObject *)event ForBeacon:(PFObject *)beacon WithBlock:(PFArrayResultBlock)callback
+{
+    PFQuery* query = [PFQuery queryWithClassName:parseImageClassName];
+    [query whereKey:@"event" equalTo:event];
+    [query whereKey:@"beacon" equalTo:beacon];
+    
+    
+    [query findObjectsInBackgroundWithBlock:callback];
+}
+
+- (void)saveImage
+{
+    UIImage *image = [UIImage imageNamed:@"event_icon.png"];
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.05f);
+    
+    PFFile *file = [PFFile fileWithData:imageData];
+//    PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
+    
+    [self uploadImage:file];
+}
+
+- (void)uploadImage:(PFFile *)imageFile
+{
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+
+            PFObject *userPhoto = [PFObject objectWithClassName:parseImageClassName];
+            [userPhoto setObject:imageFile forKey:@"imageFile"];
+            
+            [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                }
+                else{
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
+        }
+        else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    } progressBlock:^(int percentDone) {
+    }];
+}
 
 @end

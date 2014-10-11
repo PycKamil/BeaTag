@@ -14,6 +14,7 @@
 
 @property (strong) NSString* objectId;
 @property (strong) NSString* name;
+@property (strong) PFObject *parseObject;
 
 
 - (instancetype)initWithParseObject:(PFObject *)parseObject;

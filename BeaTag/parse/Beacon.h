@@ -10,11 +10,13 @@
 
 @interface Beacon : NSObject
 
-@property (strong) NSString* objectId;
-@property (strong) NSNumber* minor;
-@property (strong) NSNumber* major;
+@property (strong) NSString *objectId;
+@property (strong) NSNumber *minor;
+@property (strong) NSNumber *major;
 
 @property (strong) NSString *uuid;
+
+@property (strong) PFObject *parseObject;
 
 - (instancetype)initWithParseObject:(PFObject *)parseObject;
 
