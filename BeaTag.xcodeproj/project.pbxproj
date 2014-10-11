@@ -77,7 +77,6 @@
 		527E35A558493051FEFF7283 /* Pods-BeaTagTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaTagTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaTagTests/Pods-BeaTagTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5CCD96619E8AB1B002C64C2 /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
 		A5CCD96719E8AB1B002C64C2 /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
-		A5CCD96919E8C6F2002C64C2 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = BeaTag/Constants.h; sourceTree = "<group>"; };
 		A5CCD96A19E8C9D8002C64C2 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		A5CCD96B19E8C9D8002C64C2 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		A5CCD96D19E8C9E3002C64C2 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -139,7 +138,6 @@
 		17E9EB8219E88DD900078A64 = {
 			isa = PBXGroup;
 			children = (
-				A5CCD96919E8C6F2002C64C2 /* Constants.h */,
 				17E9EBB419E891A000078A64 /* Podfile */,
 				17E9EB8D19E88DDA00078A64 /* BeaTag */,
 				17E9EBA719E88DDA00078A64 /* BeaTagTests */,
