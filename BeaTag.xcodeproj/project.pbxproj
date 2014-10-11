@@ -16,8 +16,8 @@
 		17E9EBAB19E88DDA00078A64 /* BeaTagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EBAA19E88DDA00078A64 /* BeaTagTests.m */; };
 		17E9EBB719E8A00D00078A64 /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EBB619E8A00D00078A64 /* BeaconManager.m */; };
 		34EBB49D074ADAFCDE93D5AF /* libPods-BeaTagTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DAB9ED7DF6BE34C0C47E85 /* libPods-BeaTagTests.a */; };
-		B9ADE021A1183993FCD9ADED /* libPods-BeaTag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AFDA17D75B31DB72BDC8AB /* libPods-BeaTag.a */; };
 		A5CCD96819E8AB1B002C64C2 /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CCD96719E8AB1B002C64C2 /* Beacon.m */; };
+		B9ADE021A1183993FCD9ADED /* libPods-BeaTag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AFDA17D75B31DB72BDC8AB /* libPods-BeaTag.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +53,7 @@
 		527E35A558493051FEFF7283 /* Pods-BeaTagTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaTagTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaTagTests/Pods-BeaTagTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5CCD96619E8AB1B002C64C2 /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
 		A5CCD96719E8AB1B002C64C2 /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
+		A5CCD96919E8C6F2002C64C2 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = BeaTag/Constants.h; sourceTree = "<group>"; };
 		C9DAB9ED7DF6BE34C0C47E85 /* libPods-BeaTagTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeaTagTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F5FBC7BB0CD7034596EB69 /* Pods-BeaTag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaTag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaTag/Pods-BeaTag.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +81,7 @@
 		17E9EB8219E88DD900078A64 = {
 			isa = PBXGroup;
 			children = (
+				A5CCD96919E8C6F2002C64C2 /* Constants.h */,
 				17E9EBB419E891A000078A64 /* Podfile */,
 				17E9EB8D19E88DDA00078A64 /* BeaTag */,
 				17E9EBA719E88DDA00078A64 /* BeaTagTests */,

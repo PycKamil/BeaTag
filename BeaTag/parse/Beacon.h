@@ -17,6 +17,9 @@
 
 - (instancetype)initWithParseObject:(PFObject *)parseObject;
 
-+ (Beacon *)findByUuid:(NSString *)uuid;
++ (Beacon *)findByUuidSync:(NSString *)uuid;
+
++ (void)findByMinor:(NSNumber *)minor AndMajor:(NSNumber *)major WithBlock:(PFArrayResultBlock)callback;
+
 
 @end
