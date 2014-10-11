@@ -235,4 +235,9 @@ void displayErrorOnMainQueue(NSError *error, NSString *message)
     });
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "PhotoGalleryViewController.h"
+#import <MWPhotoBrowser/MWPhotoBrowserPrivate.h>
 
 @interface PhotoGalleryViewController ()
 
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self showGrid:YES];
     // Do any additional setup after loading the view.
 }
 

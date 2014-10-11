@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MWPhotoBrowser/MWPhotoBrowser.h>
 
-@interface PhotoGalleryViewController : UIViewController
+@interface PhotoGalleryViewController : MWPhotoBrowser
 
 @end
