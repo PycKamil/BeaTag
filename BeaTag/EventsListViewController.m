@@ -7,6 +7,7 @@
 //
 
 #import "EventsListViewController.h"
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @interface EventsListViewController ()
 
@@ -16,7 +17,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self loginUser];
+    
+}
+
+-(void)loginUser
+{
+    [PFFacebookUtils logInWithPermissions:@[@"email"] block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+        } else if (user.isNew) {
+            NSLog(@"User signed up and logged in through Facebook!");
+        } else {
+            NSLog(@"User logged in through Facebook!");
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
