@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Beacon.h"
 #import "Event.h"
-#import "BeaconManager.h"
+
+@class Beacon;
+@class BeaconManager;
 
 @interface AppManager : NSObject
 
 @property (strong) Beacon* usersBeacon;
 @property (strong) Event* selectedEvent;
 @property (nonatomic, strong) BeaconManager *beaconManager;
+
 
 + (AppManager *)sharedInstance;
 

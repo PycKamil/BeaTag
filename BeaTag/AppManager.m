@@ -7,6 +7,7 @@
 //
 
 #import "AppManager.h"
+#import "BeaconManager.h"
 
 @implementation AppManager
 
@@ -19,11 +20,33 @@ static AppManager *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[AppManager alloc] init];
-        // init
+        sharedInstance.beaconManager = [[BeaconManager alloc]init];
     });
     return sharedInstance;
 }
 
+
+
+- (void)uploadEvent:(Event *)event
+{
+    
+}
+
+- (NSArray *)getListOfEvents
+{
+    return nil;
+}
+
+- (NSArray *)getUsersImagesInSelectedEvent
+{
+    return nil;
+    
+}
+
+- (void)uploadImage:(UIImage *)image withBeacons:(NSArray *)beacons
+{
+    
+}
 
 
 @end

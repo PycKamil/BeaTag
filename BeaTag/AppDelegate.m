@@ -8,12 +8,12 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
-#import "BeaconManager.h"
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+#import "AppManager.h"
 
 @interface AppDelegate ()
 {
-    BeaconManager *manager;
+    AppManager *appManager;
 }
 @end
 
@@ -27,7 +27,7 @@
     [PFFacebookUtils initializeFacebook];
     [[UITextField appearance] setTintColor:[UIColor whiteColor]];
 
-    manager = [[BeaconManager alloc]init];
+    [AppManager sharedInstance];
     
     return YES;
 }
