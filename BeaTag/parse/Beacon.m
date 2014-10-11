@@ -12,9 +12,6 @@
 
 @implementation Beacon
 
-@synthesize minor;
-@synthesize major;
-@synthesize uuid;
 
 NSString* const className = @"Beacon";
 
@@ -23,6 +20,7 @@ NSString* const className = @"Beacon";
     
     self = [super init];
     if (self) {
+        self.objectId = parseObject[@"objectId"];
         self.minor = parseObject[@"minor"];
         self.major = parseObject[@"major"];
         self.uuid = parseObject[@"uuid"];
@@ -30,7 +28,6 @@ NSString* const className = @"Beacon";
     return self;
     
 }
-
 
 + (Beacon *)findByUuidSync:(NSString *)uuid
 {
