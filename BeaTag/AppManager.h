@@ -21,8 +21,6 @@
 
 + (AppManager *)sharedInstance;
 
-- (void)uploadEvent:(Event *)event;
-- (NSArray *)getUsersImagesInSelectedEvent;
 - (void)uploadImage:(UIImage *)image;
 
 @end

@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Kamil Pyć. All rights reserved.
 //
 
-#import "Beacon.h"
 #import <ESTBeaconManager.h>
+#import "Beacon.h"
+#import "Event.h"
 
 @implementation Beacon
 
@@ -74,6 +75,16 @@ NSString *const parseBeaconClassName = @"Beacon";
     }
     
     return entityBeacons.copy;
+}
+
++ (void)assignBeacon:(Beacon *)beacon ToUser:(PFUser *)user AndEvent:(Event *)event WithBlock:(PFBooleanResultBlock)callback
+{
+    PFObject *userBeaconEvent = [PFObject objectWithClassName:@"UserBeaconEvent"];
+    userBeaconEvent[@"user"] = user;
+    userBeaconEvent[@"beacon"] = beacon.parseObject;
+    userBeaconEvent[@"event"] = event.parseObject;
+    
+    [userBeaconEvent saveInBackgroundWithBlock:callback];
 }
 
 

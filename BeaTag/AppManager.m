@@ -37,21 +37,6 @@ static AppManager *instance;
     return sharedInstance;
 }
 
-
-
-- (void)uploadEvent:(Event *)event
-{
-    
-}
-
-
-
-- (NSArray *)getUsersImagesInSelectedEvent
-{
-    return nil;
-    
-}
-
 - (void)uploadImage:(UIImage *)image
 {
     dispatch_async(self.sessionQueue, ^{
