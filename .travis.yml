@@ -1,1 +1,3 @@
 language: objective-c
+xcodebuild -workspace BeaTag.xcworkspace -scheme BeaTag -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+xcodebuild test -workspace BeaTag.xcworkspace -scheme BeaTagTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
