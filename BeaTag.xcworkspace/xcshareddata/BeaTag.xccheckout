@@ -18,7 +18,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>87507558D237790ED5D6C1E49E902300EC1CCFCC</key>
-		<string>..BeaTag/</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/PycKamil/BeaTag.git</string>

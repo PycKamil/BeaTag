@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Kamil Pyć. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "EventsListViewController.h"
 
-@interface ViewController ()
+@interface EventsListViewController ()
 
 @end
 
-@implementation ViewController
+@implementation EventsListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
