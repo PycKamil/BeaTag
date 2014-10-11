@@ -28,5 +28,13 @@ NSString *const parseEventClassName = @"Event";
     
 }
 
++ (BOOL)saveToCacheEvents:(NSArray *)events
+{
+    NSString *cacheDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSString *path = [cacheDirectoryPath stringByAppendingPathComponent:@"events.out"];
+    
+    return [events writeToFile:path atomically:YES];
+}
 
 @end

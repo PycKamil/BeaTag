@@ -7,8 +7,7 @@
 //
 
 #import "Beacon.h"
-#import "Constants.h"
-
+#import <ESTBeaconManager.h>
 
 @implementation Beacon
 
@@ -34,7 +33,7 @@ NSString *const parseBeaconClassName = @"Beacon";
 + (void)findByMinor:(NSNumber *)minor AndMajor:(NSNumber *)major WithBlock:(PFArrayResultBlock)callback
 {
     PFQuery * query = [PFQuery queryWithClassName:parseBeaconClassName];
-    [query whereKey:@"uuid" equalTo:UUID];
+    [query whereKey:@"uuid" equalTo:ESTIMOTE_PROXIMITY_UUID];
     [query whereKey:@"minor" greaterThan:minor];
     [query whereKey:@"major" greaterThan:major];
     

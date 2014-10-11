@@ -82,4 +82,12 @@ NSString *const parseImageClassName = @"Image";
     }];
 }
 
+- (void)saveToCache:(NSDictionary *)imagesInEvent
+{
+}
+
+- (void)readFromCache
+{
+}
+
 @end
