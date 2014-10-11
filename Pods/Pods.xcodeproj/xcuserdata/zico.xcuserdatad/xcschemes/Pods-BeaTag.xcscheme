@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "449E00EF22A84D7E5DC4DC05"
+               BlueprintIdentifier = "19F73CFECA4F6B3FD1046BFE"
                BuildableName = "libPods-BeaTag.a"
                BlueprintName = "Pods-BeaTag"
                ReferencedContainer = "container:Pods.xcodeproj">

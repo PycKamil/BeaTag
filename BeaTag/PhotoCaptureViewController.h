@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic, readonly) AVCaptureSession* session;
 @property (strong, nonatomic, readonly) AVCaptureVideoPreviewLayer* previewLayer;
+@property (weak, nonatomic) IBOutlet UILabel *peopleCounter;
 
 - (IBAction)takePicture:(id)sender; // grabs a still image and applies the most recent metadata
 

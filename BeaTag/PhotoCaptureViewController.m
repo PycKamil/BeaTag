@@ -9,6 +9,8 @@
 #import "PhotoCaptureViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "AppManager.h"
+#import <THObserversAndBinders/THObserver.h>
+#import "BeaconManager.h"
 
 static char * const AVCaptureStillImageIsCapturingStillImageContext = "AVCaptureStillImageIsCapturingStillImageContext";
 
@@ -17,7 +19,7 @@ static char * const AVCaptureStillImageIsCapturingStillImageContext = "AVCapture
 @interface PhotoCaptureViewController ()
 {
     UIView *flashView;
-
+    THObserver *beaconsObserver;
 }
 
 @property (strong, nonatomic) AVCaptureSession* session;
@@ -86,6 +88,16 @@ static AVCaptureVideoOrientation avOrientationForDeviceOrientation(UIDeviceOrien
     [super viewDidLoad];
     [self setupAVCapture];
     [self setupFlash];
+    [self setupObserver];
+}
+
+-(void)setupObserver
+{
+    beaconsObserver = [THObserver observerForObject:[AppManager sharedInstance].beaconManager keyPath:NSStringFromSelector(@selector(beaconsArray)) block:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.peopleCounter.text = [NSString stringWithFormat:@"People: %d", [AppManager sharedInstance].beaconManager.beaconsArray.count];
+        });
+    }];
 }
 
 - (void)setupFlash

@@ -7,6 +7,7 @@ pod 'EstimoteSDK', '~> 2.1'
 pod 'Parse', '~> 1.4'
 pod 'ParseFacebookUtils'
 pod 'MWPhotoBrowser'
+pod 'THObserversAndBinders', '~> 1.0'
 
 end
 

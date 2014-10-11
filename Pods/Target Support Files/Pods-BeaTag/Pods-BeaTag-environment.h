@@ -72,3 +72,9 @@
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 1
 
+// THObserversAndBinders
+#define COCOAPODS_POD_AVAILABLE_THObserversAndBinders
+#define COCOAPODS_VERSION_MAJOR_THObserversAndBinders 1
+#define COCOAPODS_VERSION_MINOR_THObserversAndBinders 0
+#define COCOAPODS_VERSION_PATCH_THObserversAndBinders 0
+

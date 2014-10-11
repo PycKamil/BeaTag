@@ -387,6 +387,12 @@
                                     <segue destination="eEg-5A-uSu" kind="unwind" unwindAction="backFromCamera:" id="3d8-hP-SXy"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXZ-ud-1Vi">
+                                <rect key="frame" x="252" y="10" width="95" height="27"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D26-T5-dnB">
                                 <rect key="frame" x="524" y="10" width="50" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -423,9 +429,12 @@
                             <constraint firstAttribute="trailing" secondItem="JSr-KA-RSX" secondAttribute="trailing" id="jgZ-Pn-uvP"/>
                             <constraint firstAttribute="centerX" secondItem="byL-Uw-2rI" secondAttribute="centerX" id="oDn-Mj-VqO"/>
                             <constraint firstItem="m4v-KV-F6r" firstAttribute="top" secondItem="JSr-KA-RSX" secondAttribute="bottom" id="u8R-Br-QaG"/>
+                            <constraint firstItem="RXZ-ud-1Vi" firstAttribute="top" secondItem="fT3-ZY-3kf" secondAttribute="topMargin" constant="10" id="xxA-jN-UKJ"/>
+                            <constraint firstAttribute="centerX" secondItem="RXZ-ud-1Vi" secondAttribute="centerX" id="zye-Bz-6sP"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="peopleCounter" destination="RXZ-ud-1Vi" id="yAP-38-xkD"/>
                         <outlet property="previewView" destination="JSr-KA-RSX" id="K0n-Mb-jhn"/>
                     </connections>
                 </viewController>
