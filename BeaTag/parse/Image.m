@@ -51,23 +51,26 @@ NSString *const parseImageClassName = @"Image";
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
-- (void)saveImage:(UIImage *)image
++ (void)saveImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons
 {
     NSData *imageData = UIImageJPEGRepresentation(image, 0.05f);
     
     PFFile *file = [PFFile fileWithData:imageData];
     
-    [self uploadImage:file];
+    [self createRelationUploadImage:file withBeacons:enitityBeacons];
 }
 
-- (void)uploadImage:(PFFile *)imageFile
++ (void)createRelationUploadImage:(PFFile *)imageFile withBeacons:(NSArray *)enitityBeacons
 {
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
 
             PFObject *userPhoto = [PFObject objectWithClassName:parseImageClassName];
             [userPhoto setObject:imageFile forKey:@"imageFile"];
-            
+            PFRelation *relation = [userPhoto relationForKey:@"beacons"];
+            for (PFObject *beacon in enitityBeacons) {
+                [relation addObject:beacon];
+            }
             [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
                 }
@@ -111,9 +114,9 @@ typedef void(^ImageResultBlock)(UIImage *image);
 {
 }
 
--(void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons
++(void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons
 {
-    [self saveImage:image];
+    [Image saveImage:image withBeacons:enitityBeacons];
 }
 
 @end

@@ -254,7 +254,7 @@ void writeJPEGDataToCameraRoll(NSData* data, NSDictionary* metadata)
              
                  // Simple JPEG case, just save it
                  NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-                 UIImage *image = [[UIImage alloc] initWithData:imageData];
+                UIImage *image = [[UIImage alloc] initWithData:jpegData];
                 [[AppManager sharedInstance] uploadImage:image];
                  NSDictionary* attachments = (__bridge_transfer NSDictionary*) CMCopyDictionaryOfAttachments(kCFAllocatorDefault, imageDataSampleBuffer, kCMAttachmentMode_ShouldPropagate);
                  writeJPEGDataToCameraRoll(jpegData, attachments);

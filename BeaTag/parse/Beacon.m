@@ -30,6 +30,16 @@ NSString *const parseBeaconClassName = @"Beacon";
     
 }
 
++ (Beacon *)findByMinor:(NSNumber *)minor andMajor:(NSNumber *)major
+{
+    PFQuery * query = [PFQuery queryWithClassName:parseBeaconClassName];
+    [query whereKey:@"uuid" equalTo:[[ESTIMOTE_PROXIMITY_UUID UUIDString] lowercaseString]];
+    [query whereKey:@"minor" greaterThan:minor];
+    [query whereKey:@"major" greaterThan:major];
+    
+    return [[query findObjects] firstObject];
+}
+
 + (void)findByMinor:(NSNumber *)minor AndMajor:(NSNumber *)major WithBlock:(PFArrayResultBlock)callback
 {
     PFQuery * query = [PFQuery queryWithClassName:parseBeaconClassName];
@@ -52,7 +62,18 @@ NSString *const parseBeaconClassName = @"Beacon";
 
 +(NSArray *)getBeconsEnitiesWithEstimotes:(NSArray *)estimotesBeacons
 {
-    return nil;
+    NSMutableArray *entityBeacons = [NSMutableArray arrayWithCapacity:estimotesBeacons.count];
+    
+    for (ESTBeacon *estimoteBeacon in estimotesBeacons) {
+        Beacon *entityBeacon = [Beacon findByMinor:estimoteBeacon.minor andMajor:estimoteBeacon.major];
+        if(entityBeacon) {
+            [entityBeacons addObject:entityBeacon];
+        } else {
+            NSLog(@"Unknown beacon!");
+        }
+    }
+    
+    return entityBeacons.copy;
 }
 
 
