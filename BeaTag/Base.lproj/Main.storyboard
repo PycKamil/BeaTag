@@ -317,13 +317,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQt-pX-D3w">
-                                <rect key="frame" x="182" y="306" width="237" height="203"/>
+                                <rect key="frame" x="225" y="309" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="VQt-pX-D3w" secondAttribute="height" multiplier="276:236" id="G3D-ta-CvR"/>
-                                    <constraint firstAttribute="width" constant="237" id="Q67-AF-fvd"/>
+                                    <constraint firstAttribute="width" secondItem="VQt-pX-D3w" secondAttribute="height" multiplier="150:150" id="G3D-ta-CvR"/>
+                                    <constraint firstAttribute="width" constant="150" id="Q67-AF-fvd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <inset key="titleEdgeInsets" minX="-301" minY="183" maxX="0.0" maxY="0.0"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="-297" minY="135" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="take a photo" image="camera.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -332,13 +332,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6N-Ug-vue">
-                                <rect key="frame" x="182" y="84" width="237" height="214"/>
+                                <rect key="frame" x="225" y="129" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="237" id="LUG-60-J30"/>
-                                    <constraint firstAttribute="width" secondItem="F6N-Ug-vue" secondAttribute="height" multiplier="247:223" id="NqE-jz-pFq"/>
+                                    <constraint firstAttribute="width" constant="150" id="LUG-60-J30"/>
+                                    <constraint firstAttribute="width" secondItem="F6N-Ug-vue" secondAttribute="height" multiplier="150:150" id="NqE-jz-pFq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <inset key="titleEdgeInsets" minX="-285" minY="182" maxX="0.0" maxY="0.0"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="-294" minY="129" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="browse gallery" image="images.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -350,8 +350,8 @@
                         <color key="backgroundColor" red="0.0" green="0.67058825489999996" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="F6N-Ug-vue" secondAttribute="centerX" id="5Zx-QB-OJK"/>
-                            <constraint firstItem="F6N-Ug-vue" firstAttribute="top" secondItem="FGp-Jb-FkL" secondAttribute="bottom" constant="20" id="Bu0-mC-Irr"/>
-                            <constraint firstItem="VQt-pX-D3w" firstAttribute="top" secondItem="F6N-Ug-vue" secondAttribute="bottom" constant="8" symbolic="YES" id="KPC-8O-8RY"/>
+                            <constraint firstItem="F6N-Ug-vue" firstAttribute="top" secondItem="FGp-Jb-FkL" secondAttribute="bottom" constant="65" id="Bu0-mC-Irr"/>
+                            <constraint firstItem="VQt-pX-D3w" firstAttribute="top" secondItem="F6N-Ug-vue" secondAttribute="bottom" constant="30" id="KPC-8O-8RY"/>
                             <constraint firstAttribute="centerX" secondItem="VQt-pX-D3w" secondAttribute="centerX" id="M77-Mj-x80"/>
                         </constraints>
                     </view>
