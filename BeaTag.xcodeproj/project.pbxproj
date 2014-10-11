@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		170DC08919E965010030EE16 /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 170DC08819E965010030EE16 /* EventTableViewCell.m */; };
 		170DC08B19E96C1D0030EE16 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 170DC08A19E96C1D0030EE16 /* 2.png */; };
+		170DC08E19E976950030EE16 /* AddEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 170DC08D19E976950030EE16 /* AddEventTableViewController.m */; };
 		1786ACD019E8CD7D00C76D47 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1786ACCF19E8CD7D00C76D47 /* 1.png */; };
 		1786ACD419E8D12A00C76D47 /* SelectBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */; };
 		1786ACD619E8D50200C76D47 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1786ACD519E8D50200C76D47 /* checkmark.png */; };
@@ -50,6 +51,8 @@
 		170DC08719E965010030EE16 /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
 		170DC08819E965010030EE16 /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		170DC08A19E96C1D0030EE16 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		170DC08C19E976950030EE16 /* AddEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventTableViewController.h; sourceTree = "<group>"; };
+		170DC08D19E976950030EE16 /* AddEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventTableViewController.m; sourceTree = "<group>"; };
 		1786ACCF19E8CD7D00C76D47 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		1786ACD219E8D12A00C76D47 /* SelectBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBeaconViewController.h; sourceTree = "<group>"; };
 		1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBeaconViewController.m; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				17DFEB6D19E8F60400F941E2 /* PhotoGalleryViewController.m */,
 				170DC08719E965010030EE16 /* EventTableViewCell.h */,
 				170DC08819E965010030EE16 /* EventTableViewCell.m */,
+				170DC08C19E976950030EE16 /* AddEventTableViewController.h */,
+				170DC08D19E976950030EE16 /* AddEventTableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 				A5CCD97219E8F1A7002C64C2 /* AppManager.m in Sources */,
 				17E9EB9719E88DDA00078A64 /* EventsListViewController.m in Sources */,
 				17E9EBB719E8A00D00078A64 /* BeaconManager.m in Sources */,
+				170DC08E19E976950030EE16 /* AddEventTableViewController.m in Sources */,
 				A5CCD96819E8AB1B002C64C2 /* Beacon.m in Sources */,
 				A5CCD96C19E8C9D8002C64C2 /* Image.m in Sources */,
 				17DFEB6719E8E59900F941E2 /* PhotoCaptureViewController.m in Sources */,

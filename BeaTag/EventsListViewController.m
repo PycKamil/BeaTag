@@ -87,4 +87,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)backFromAddingEvent:(UIStoryboardSegue *)sender { }
+
+
 @end
