@@ -25,6 +25,7 @@
                   clientKey:@"zH4PBf3VSNuvPpp7gvZ199pNdVDmKvUtBuuwTbbd"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [PFFacebookUtils initializeFacebook];
+    [[UITextField appearance] setTintColor:[UIColor whiteColor]];
 
     manager = [[BeaconManager alloc]init];
     

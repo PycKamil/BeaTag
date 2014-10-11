@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EventsListViewController : UIViewController
+@interface EventsListViewController : UITableViewController
 
 
 @end

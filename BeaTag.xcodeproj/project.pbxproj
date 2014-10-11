@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1786ACD019E8CD7D00C76D47 /* event_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1786ACCF19E8CD7D00C76D47 /* event_icon.png */; };
+		1786ACD419E8D12A00C76D47 /* SelectBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */; };
+		1786ACD619E8D50200C76D47 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1786ACD519E8D50200C76D47 /* checkmark.png */; };
 		17E9EB9119E88DDA00078A64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EB9019E88DDA00078A64 /* main.m */; };
 		17E9EB9419E88DDA00078A64 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EB9319E88DDA00078A64 /* AppDelegate.m */; };
 		17E9EB9719E88DDA00078A64 /* EventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EB9619E88DDA00078A64 /* EventsListViewController.m */; };
@@ -16,8 +19,8 @@
 		17E9EBAB19E88DDA00078A64 /* BeaTagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EBAA19E88DDA00078A64 /* BeaTagTests.m */; };
 		17E9EBB719E8A00D00078A64 /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EBB619E8A00D00078A64 /* BeaconManager.m */; };
 		34EBB49D074ADAFCDE93D5AF /* libPods-BeaTagTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DAB9ED7DF6BE34C0C47E85 /* libPods-BeaTagTests.a */; };
-		B9ADE021A1183993FCD9ADED /* libPods-BeaTag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AFDA17D75B31DB72BDC8AB /* libPods-BeaTag.a */; };
 		A5CCD96819E8AB1B002C64C2 /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CCD96719E8AB1B002C64C2 /* Beacon.m */; };
+		B9ADE021A1183993FCD9ADED /* libPods-BeaTag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AFDA17D75B31DB72BDC8AB /* libPods-BeaTag.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +35,10 @@
 
 /* Begin PBXFileReference section */
 		0A8E742089817C6BDD2C110A /* Pods-BeaTag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaTag.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaTag/Pods-BeaTag.release.xcconfig"; sourceTree = "<group>"; };
+		1786ACCF19E8CD7D00C76D47 /* event_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = event_icon.png; sourceTree = "<group>"; };
+		1786ACD219E8D12A00C76D47 /* SelectBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBeaconViewController.h; sourceTree = "<group>"; };
+		1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBeaconViewController.m; sourceTree = "<group>"; };
+		1786ACD519E8D50200C76D47 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		17E9EB8B19E88DD900078A64 /* BeaTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E9EB8F19E88DDA00078A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17E9EB9019E88DDA00078A64 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -77,6 +84,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1786ACCE19E8CD6F00C76D47 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				1786ACD519E8D50200C76D47 /* checkmark.png */,
+				1786ACCF19E8CD7D00C76D47 /* event_icon.png */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		1786ACD119E8D08B00C76D47 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				17E9EB9519E88DDA00078A64 /* EventsListViewController.h */,
+				17E9EB9619E88DDA00078A64 /* EventsListViewController.m */,
+				1786ACD219E8D12A00C76D47 /* SelectBeaconViewController.h */,
+				1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		17E9EB8219E88DD900078A64 = {
 			isa = PBXGroup;
 			children = (
@@ -101,11 +128,11 @@
 		17E9EB8D19E88DDA00078A64 /* BeaTag */ = {
 			isa = PBXGroup;
 			children = (
+				1786ACCE19E8CD6F00C76D47 /* resources */,
 				A5CCD96519E8AA0A002C64C2 /* parse */,
 				17E9EB9219E88DDA00078A64 /* AppDelegate.h */,
 				17E9EB9319E88DDA00078A64 /* AppDelegate.m */,
-				17E9EB9519E88DDA00078A64 /* EventsListViewController.h */,
-				17E9EB9619E88DDA00078A64 /* EventsListViewController.m */,
+				1786ACD119E8D08B00C76D47 /* View Controllers */,
 				17E9EB9819E88DDA00078A64 /* Main.storyboard */,
 				17E9EB9B19E88DDA00078A64 /* Images.xcassets */,
 				17E9EB9D19E88DDA00078A64 /* LaunchScreen.xib */,
@@ -261,8 +288,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				17E9EB9A19E88DDA00078A64 /* Main.storyboard in Resources */,
+				1786ACD619E8D50200C76D47 /* checkmark.png in Resources */,
 				17E9EB9F19E88DDA00078A64 /* LaunchScreen.xib in Resources */,
 				17E9EB9C19E88DDA00078A64 /* Images.xcassets in Resources */,
+				1786ACD019E8CD7D00C76D47 /* event_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1786ACD419E8D12A00C76D47 /* SelectBeaconViewController.m in Sources */,
 				17E9EB9719E88DDA00078A64 /* EventsListViewController.m in Sources */,
 				17E9EBB719E8A00D00078A64 /* BeaconManager.m in Sources */,
 				A5CCD96819E8AB1B002C64C2 /* Beacon.m in Sources */,
@@ -473,6 +503,7 @@
 				INFOPLIST_FILE = BeaTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -484,6 +515,7 @@
 				INFOPLIST_FILE = BeaTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

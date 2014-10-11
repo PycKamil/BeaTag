@@ -11,6 +11,7 @@
 
 @interface EventsListViewController ()
 
+
 @end
 
 @implementation EventsListViewController
@@ -18,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loginUser];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
 }
 
 -(void)loginUser
