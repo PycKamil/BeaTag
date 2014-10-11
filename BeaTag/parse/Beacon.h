@@ -10,6 +10,7 @@
 
 @interface Beacon : NSObject
 
+@property (strong) NSString* objectId;
 @property (strong) NSNumber* minor;
 @property (strong) NSNumber* major;
 
