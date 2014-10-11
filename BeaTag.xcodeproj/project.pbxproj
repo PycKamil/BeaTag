@@ -17,6 +17,7 @@
 		17E9EBB719E8A00D00078A64 /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EBB619E8A00D00078A64 /* BeaconManager.m */; };
 		34EBB49D074ADAFCDE93D5AF /* libPods-BeaTagTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DAB9ED7DF6BE34C0C47E85 /* libPods-BeaTagTests.a */; };
 		B9ADE021A1183993FCD9ADED /* libPods-BeaTag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AFDA17D75B31DB72BDC8AB /* libPods-BeaTag.a */; };
+		A5CCD96819E8AB1B002C64C2 /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CCD96719E8AB1B002C64C2 /* Beacon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		41AFDA17D75B31DB72BDC8AB /* libPods-BeaTag.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeaTag.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4612D62111F426D8FA8F9EC9 /* Pods-BeaTagTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaTagTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaTagTests/Pods-BeaTagTests.debug.xcconfig"; sourceTree = "<group>"; };
 		527E35A558493051FEFF7283 /* Pods-BeaTagTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaTagTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaTagTests/Pods-BeaTagTests.release.xcconfig"; sourceTree = "<group>"; };
+		A5CCD96619E8AB1B002C64C2 /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
+		A5CCD96719E8AB1B002C64C2 /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
 		C9DAB9ED7DF6BE34C0C47E85 /* libPods-BeaTagTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeaTagTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F5FBC7BB0CD7034596EB69 /* Pods-BeaTag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaTag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaTag/Pods-BeaTag.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +101,7 @@
 		17E9EB8D19E88DDA00078A64 /* BeaTag */ = {
 			isa = PBXGroup;
 			children = (
+				A5CCD96519E8AA0A002C64C2 /* parse */,
 				17E9EB9219E88DDA00078A64 /* AppDelegate.h */,
 				17E9EB9319E88DDA00078A64 /* AppDelegate.m */,
 				17E9EB9519E88DDA00078A64 /* EventsListViewController.h */,
@@ -147,6 +151,15 @@
 				527E35A558493051FEFF7283 /* Pods-BeaTagTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A5CCD96519E8AA0A002C64C2 /* parse */ = {
+			isa = PBXGroup;
+			children = (
+				A5CCD96619E8AB1B002C64C2 /* Beacon.h */,
+				A5CCD96719E8AB1B002C64C2 /* Beacon.m */,
+			);
+			path = parse;
 			sourceTree = "<group>";
 		};
 		C878E57E77B3E92C0E8CD763 /* Frameworks */ = {
@@ -332,6 +345,7 @@
 			files = (
 				17E9EB9719E88DDA00078A64 /* EventsListViewController.m in Sources */,
 				17E9EBB719E8A00D00078A64 /* BeaconManager.m in Sources */,
+				A5CCD96819E8AB1B002C64C2 /* Beacon.m in Sources */,
 				17E9EB9419E88DDA00078A64 /* AppDelegate.m in Sources */,
 				17E9EB9119E88DDA00078A64 /* main.m in Sources */,
 			);
