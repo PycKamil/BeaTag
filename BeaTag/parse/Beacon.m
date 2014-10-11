@@ -16,6 +16,8 @@
 
 NSString* const className = @"Beacon";
 
+//Beacon id: @"b9407f30-f5f8-466e-aff9-25556b57fe6d"
+
 
 - (instancetype)initWithParseObject:(PFObject *)parseObject
 {

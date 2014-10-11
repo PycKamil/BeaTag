@@ -21,9 +21,7 @@
     [Parse setApplicationId:@"OZIPO1RjXP16EK2Q1Rl0nQGSfhM05rmBpzW60dAL"
                   clientKey:@"zH4PBf3VSNuvPpp7gvZ199pNdVDmKvUtBuuwTbbd"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
-    Beacon * b  = [Beacon findByUuid:@"b9407f30-f5f8-466e-aff9-25556b57fe6d"];
-    
+        
     return YES;
 }
 
