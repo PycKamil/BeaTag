@@ -13,6 +13,7 @@
 		17DFEB6019E8D82D00F941E2 /* SelectActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DFEB5F19E8D82D00F941E2 /* SelectActionViewController.m */; };
 		17DFEB6219E8D8D600F941E2 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 17DFEB6119E8D8D600F941E2 /* camera.png */; };
 		17DFEB6419E8D8DE00F941E2 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 17DFEB6319E8D8DE00F941E2 /* images.png */; };
+		17DFEB6719E8E59900F941E2 /* PhotoCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DFEB6619E8E59900F941E2 /* PhotoCaptureViewController.m */; };
 		17E9EB9119E88DDA00078A64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EB9019E88DDA00078A64 /* main.m */; };
 		17E9EB9419E88DDA00078A64 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EB9319E88DDA00078A64 /* AppDelegate.m */; };
 		17E9EB9719E88DDA00078A64 /* EventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EB9619E88DDA00078A64 /* EventsListViewController.m */; };
@@ -48,6 +49,8 @@
 		17DFEB5F19E8D82D00F941E2 /* SelectActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectActionViewController.m; sourceTree = "<group>"; };
 		17DFEB6119E8D8D600F941E2 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		17DFEB6319E8D8DE00F941E2 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
+		17DFEB6519E8E59900F941E2 /* PhotoCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCaptureViewController.h; sourceTree = "<group>"; };
+		17DFEB6619E8E59900F941E2 /* PhotoCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCaptureViewController.m; sourceTree = "<group>"; };
 		17E9EB8B19E88DD900078A64 /* BeaTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E9EB8F19E88DDA00078A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17E9EB9019E88DDA00078A64 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				17E9EB9619E88DDA00078A64 /* EventsListViewController.m */,
 				1786ACD219E8D12A00C76D47 /* SelectBeaconViewController.h */,
 				1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */,
+				17DFEB6519E8E59900F941E2 /* PhotoCaptureViewController.h */,
+				17DFEB6619E8E59900F941E2 /* PhotoCaptureViewController.m */,
 				17DFEB5E19E8D82D00F941E2 /* SelectActionViewController.h */,
 				17DFEB5F19E8D82D00F941E2 /* SelectActionViewController.m */,
 			);
@@ -403,6 +408,7 @@
 				17E9EBB719E8A00D00078A64 /* BeaconManager.m in Sources */,
 				A5CCD96819E8AB1B002C64C2 /* Beacon.m in Sources */,
 				A5CCD96C19E8C9D8002C64C2 /* Image.m in Sources */,
+				17DFEB6719E8E59900F941E2 /* PhotoCaptureViewController.m in Sources */,
 				17E9EB9419E88DDA00078A64 /* AppDelegate.m in Sources */,
 				17E9EB9119E88DDA00078A64 /* main.m in Sources */,
 				A5CCD96F19E8C9E3002C64C2 /* Event.m in Sources */,
