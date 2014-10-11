@@ -7,23 +7,19 @@
 //
 
 #import "Beacon.h"
+#import "Constants.h"
+
 
 @implementation Beacon
 
-@synthesize minor;
-@synthesize major;
-@synthesize uuid;
-
-NSString* const className = @"Beacon";
-
-//Beacon id: @"b9407f30-f5f8-466e-aff9-25556b57fe6d"
-
+NSString *const parseBeaconClassName = @"Beacon";
 
 - (instancetype)initWithParseObject:(PFObject *)parseObject
 {
     
     self = [super init];
     if (self) {
+        self.objectId = parseObject[@"objectId"];
         self.minor = parseObject[@"minor"];
         self.major = parseObject[@"major"];
         self.uuid = parseObject[@"uuid"];
@@ -32,17 +28,24 @@ NSString* const className = @"Beacon";
     
 }
 
-
-+ (Beacon *)findByUuid:(NSString *)uuid
++ (Beacon *)findByUuidSync:(NSString *)uuid
 {
-    
-    PFQuery * query = [PFQuery queryWithClassName:className];
+    PFQuery * query = [PFQuery queryWithClassName:parseBeaconClassName];
     [query whereKey:@"uuid" equalTo:uuid];
     
     NSArray *obj = [query findObjects];
-    
-    
+
     return [[Beacon alloc] initWithParseObject:[obj objectAtIndex:0]];
+}
+
++ (void)findByMinor:(NSNumber *)minor AndMajor:(NSNumber *)major WithBlock:(PFArrayResultBlock)callback
+{
+    PFQuery * query = [PFQuery queryWithClassName:parseBeaconClassName];
+    [query whereKey:@"uuid" equalTo:UUID];
+    [query whereKey:@"minor" greaterThan:minor];
+    [query whereKey:@"major" greaterThan:major];
+    
+    [query findObjectsInBackgroundWithBlock:callback];
 }
 
 @end

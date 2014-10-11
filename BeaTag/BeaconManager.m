@@ -59,7 +59,7 @@
 - (void)beaconManager:(ESTBeaconManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(ESTBeaconRegion *)region
 {
     self.beaconsArray = beacons;
-    NSLog(@"in range :%d", self.beaconsArray.count);
+    NSLog(@"in range :%lu", (unsigned long)self.beaconsArray.count);
 }
 
 -(void)beaconManager:(ESTBeaconManager *)manager rangingBeaconsDidFailForRegion:(ESTBeaconRegion *)region withError:(NSError *)error

@@ -20,6 +20,8 @@
 		17E9EBB719E8A00D00078A64 /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EBB619E8A00D00078A64 /* BeaconManager.m */; };
 		34EBB49D074ADAFCDE93D5AF /* libPods-BeaTagTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DAB9ED7DF6BE34C0C47E85 /* libPods-BeaTagTests.a */; };
 		A5CCD96819E8AB1B002C64C2 /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CCD96719E8AB1B002C64C2 /* Beacon.m */; };
+		A5CCD96C19E8C9D8002C64C2 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CCD96B19E8C9D8002C64C2 /* Image.m */; };
+		A5CCD96F19E8C9E3002C64C2 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CCD96E19E8C9E3002C64C2 /* Event.m */; };
 		B9ADE021A1183993FCD9ADED /* libPods-BeaTag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AFDA17D75B31DB72BDC8AB /* libPods-BeaTag.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,11 @@
 		527E35A558493051FEFF7283 /* Pods-BeaTagTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaTagTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeaTagTests/Pods-BeaTagTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5CCD96619E8AB1B002C64C2 /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
 		A5CCD96719E8AB1B002C64C2 /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
+		A5CCD96919E8C6F2002C64C2 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = BeaTag/Constants.h; sourceTree = "<group>"; };
+		A5CCD96A19E8C9D8002C64C2 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		A5CCD96B19E8C9D8002C64C2 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		A5CCD96D19E8C9E3002C64C2 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		A5CCD96E19E8C9E3002C64C2 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		C9DAB9ED7DF6BE34C0C47E85 /* libPods-BeaTagTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BeaTagTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F5FBC7BB0CD7034596EB69 /* Pods-BeaTag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeaTag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeaTag/Pods-BeaTag.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +114,7 @@
 		17E9EB8219E88DD900078A64 = {
 			isa = PBXGroup;
 			children = (
+				A5CCD96919E8C6F2002C64C2 /* Constants.h */,
 				17E9EBB419E891A000078A64 /* Podfile */,
 				17E9EB8D19E88DDA00078A64 /* BeaTag */,
 				17E9EBA719E88DDA00078A64 /* BeaTagTests */,
@@ -185,6 +193,10 @@
 			children = (
 				A5CCD96619E8AB1B002C64C2 /* Beacon.h */,
 				A5CCD96719E8AB1B002C64C2 /* Beacon.m */,
+				A5CCD96A19E8C9D8002C64C2 /* Image.h */,
+				A5CCD96B19E8C9D8002C64C2 /* Image.m */,
+				A5CCD96D19E8C9E3002C64C2 /* Event.h */,
+				A5CCD96E19E8C9E3002C64C2 /* Event.m */,
 			);
 			path = parse;
 			sourceTree = "<group>";
@@ -376,8 +388,10 @@
 				17E9EB9719E88DDA00078A64 /* EventsListViewController.m in Sources */,
 				17E9EBB719E8A00D00078A64 /* BeaconManager.m in Sources */,
 				A5CCD96819E8AB1B002C64C2 /* Beacon.m in Sources */,
+				A5CCD96C19E8C9D8002C64C2 /* Image.m in Sources */,
 				17E9EB9419E88DDA00078A64 /* AppDelegate.m in Sources */,
 				17E9EB9119E88DDA00078A64 /* main.m in Sources */,
+				A5CCD96F19E8C9E3002C64C2 /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +514,7 @@
 			baseConfigurationReference = D5F5FBC7BB0CD7034596EB69 /* Pods-BeaTag.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sewer Skrzypinski (B5BM39LZ2J)";
 				INFOPLIST_FILE = BeaTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -512,6 +527,7 @@
 			baseConfigurationReference = 0A8E742089817C6BDD2C110A /* Pods-BeaTag.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sewer Skrzypinski (B5BM39LZ2J)";
 				INFOPLIST_FILE = BeaTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
