@@ -22,4 +22,6 @@
 
 - (instancetype)initWithParseObject:(PFObject *)parseObject;
 
++ (void)getListOfEventsWithBlock:(PFArrayResultBlock)callback;
+
 @end

@@ -39,4 +39,11 @@ NSString *const parseEventClassName = @"Event";
 //    return [events writeToFile:path atomically:YES];
 //}
 
++(void)getListOfEventsWithBlock:(PFArrayResultBlock)callback
+{
+    PFQuery * query = [PFQuery queryWithClassName:parseEventClassName];
+    [query findObjectsInBackgroundWithBlock:callback];
+}
+
+
 @end

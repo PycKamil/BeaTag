@@ -7,6 +7,8 @@
 //
 
 #import "SelectBeaconViewController.h"
+#import "Beacon.h"
+#import "AppManager.h"
 
 @interface SelectBeaconViewController ()
 
@@ -16,7 +18,8 @@
 
 @implementation SelectBeaconViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.textField becomeFirstResponder];
@@ -25,6 +28,27 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)beaconSelectedPressed
+{
+    if (self.textField.text.length) {
+        [Beacon findByBeaconId:@(self.textField.text.integerValue) WithBlock:^(NSArray *objects, NSError *error) {
+            if (objects.count) {
+                [AppManager sharedInstance].usersBeacon = objects.firstObject;
+                [self performSegueWithIdentifier:@"actionSelection" sender:self];
+            } else {
+                [self performSelectorOnMainThread:@selector(showErrorMessage) withObject:NO waitUntilDone:NO];
+            }
+        }];
+    } else {
+        [self showErrorMessage];
+    }
+}
+
+-(void)showErrorMessage
+{
+      [[[UIAlertView alloc]initWithTitle:@"Error" message:@"You need to select proper beacon id!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
 }
 
 /*
