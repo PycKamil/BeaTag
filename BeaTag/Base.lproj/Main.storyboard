@@ -177,13 +177,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQt-pX-D3w">
-                                <rect key="frame" x="182" y="315" width="237" height="214"/>
+                                <rect key="frame" x="182" y="306" width="237" height="203"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="VQt-pX-D3w" secondAttribute="height" multiplier="261:236" id="G3D-ta-CvR"/>
+                                    <constraint firstAttribute="width" secondItem="VQt-pX-D3w" secondAttribute="height" multiplier="276:236" id="G3D-ta-CvR"/>
                                     <constraint firstAttribute="width" constant="237" id="Q67-AF-fvd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <inset key="titleEdgeInsets" minX="-301" minY="195" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="-301" minY="183" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="take a photo" image="camera.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -192,13 +192,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6N-Ug-vue">
-                                <rect key="frame" x="182" y="84" width="237" height="223"/>
+                                <rect key="frame" x="182" y="84" width="237" height="214"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="LUG-60-J30"/>
-                                    <constraint firstAttribute="width" secondItem="F6N-Ug-vue" secondAttribute="height" multiplier="237:223" id="NqE-jz-pFq"/>
+                                    <constraint firstAttribute="width" secondItem="F6N-Ug-vue" secondAttribute="height" multiplier="247:223" id="NqE-jz-pFq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <inset key="titleEdgeInsets" minX="-285" minY="197" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="-285" minY="182" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="browse gallery" image="images.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
