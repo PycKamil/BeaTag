@@ -11,19 +11,42 @@
 
 @interface PhotoGalleryViewController ()
 
+@property (nonatomic, assign) BOOL filteredMode;
+
 @end
 
 @implementation PhotoGalleryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self showGrid:YES];
-    // Do any additional setup after loading the view.
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(filterPhotos)];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self performLayout];
+    [self.view setNeedsLayout];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)filterPhotos
+{
+    self.filteredMode =! self.filteredMode;
+    
+    if (self.filteredMode) {
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor greenColor];
+        self.navigationController.navigationBar.tintColor = [UIColor greenColor];
+    } else {
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    }
+    
+    [self reloadData];
 }
 
 /*

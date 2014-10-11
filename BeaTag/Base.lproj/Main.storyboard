@@ -293,25 +293,7 @@
                     <view key="view" contentMode="scaleToFill" id="J4o-nx-xkl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQr-mr-KCk">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.0" green="0.67058825489999996" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
-                                <items>
-                                    <barButtonItem title="Item" id="RAv-VV-IQA"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jqH-Hn-lGa"/>
-                                    <barButtonItem title="Item" id="uyJ-xY-PZH"/>
-                                </items>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.0" green="0.67058825489999996" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
-                            </toolbar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="aQr-mr-KCk" firstAttribute="top" secondItem="V3k-IL-K9A" secondAttribute="bottom" id="Njy-9h-9Hc"/>
-                            <constraint firstItem="aQr-mr-KCk" firstAttribute="leading" secondItem="J4o-nx-xkl" secondAttribute="leading" id="Wzq-rq-ObJ"/>
-                            <constraint firstAttribute="trailing" secondItem="aQr-mr-KCk" secondAttribute="trailing" id="w6X-BJ-0fe"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIj-P3-zYD" userLabel="First Responder" sceneMemberID="firstResponder"/>
