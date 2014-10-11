@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhotoGalleryViewController.h"
 
-@interface SelectActionViewController : UIViewController
+@interface SelectActionViewController : UIViewController <MWPhotoBrowserDelegate,PhotoGalleryFiltering>
 
 @end

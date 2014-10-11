@@ -35,7 +35,7 @@
     if (self.textField.text.length) {
         [Beacon findByBeaconId:@(self.textField.text.integerValue) WithBlock:^(NSArray *objects, NSError *error) {
             if (objects.count) {
-                [AppManager sharedInstance].usersBeacon = objects.firstObject;
+                [AppManager sharedInstance].usersBeacon = [[Beacon alloc]initWithParseObject:objects.firstObject];
                 [self performSegueWithIdentifier:@"actionSelection" sender:self];
             } else {
                 [self performSelectorOnMainThread:@selector(showErrorMessage) withObject:NO waitUntilDone:NO];

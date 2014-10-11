@@ -51,7 +51,7 @@ NSString *const parseImageClassName = @"Image";
 {
     PFQuery* query = [PFQuery queryWithClassName:parseImageClassName];
     [query whereKey:@"event" equalTo:event];
-    [query whereKey:@"beacon" equalTo:beacon];
+    [query whereKey:@"beacons" equalTo:beacon];
     
     
     [query findObjectsInBackgroundWithBlock:callback];

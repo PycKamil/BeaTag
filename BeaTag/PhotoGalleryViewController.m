@@ -24,6 +24,15 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(filterPhotos)];
 }
 
+-(void)reloadData
+{
+    [super reloadData];
+    [[[self valueForKey:@"_gridController"]collectionView] reloadData ];
+
+    [self performLayout];
+    [self.view setNeedsLayout];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -47,8 +56,7 @@
         self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
         self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     }
-    
-    [self reloadData];
+    [self.delegate filterPhotos:self.filteredMode];
 }
 
 /*

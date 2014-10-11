@@ -15,6 +15,7 @@
 @interface SelectActionViewController () <MWPhotoBrowserDelegate>
 
 @property (nonatomic, strong) NSArray *photos;
+@property (nonatomic, weak) PhotoGalleryViewController *galleryVC;
 
 @end
 
@@ -23,16 +24,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self loadPhotos];
+    [self loadPhotos:NO];
     self.navigationItem.title = [[[AppManager sharedInstance] selectedEvent] name];
     // Do any additional setup after loading the view.
 }
 
--(void)loadPhotos
+-(void)loadPhotos:(BOOL)filtered
 {
-    [Image findImagesInEvent:[[[AppManager sharedInstance] selectedEvent] parseObject] WithBlock:^(NSArray *objects, NSError *error) {
-        [self processPhotos:objects];
-    }];
+    PFArrayResultBlock completition = ^(NSArray *objects, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self processPhotos:objects];
+            [self.galleryVC reloadData];
+        });
+    };
+    if(filtered){
+        [Image findImagesInEvent:[[[AppManager sharedInstance] selectedEvent] parseObject] ForBeacon:[[[AppManager sharedInstance] usersBeacon] parseObject] WithBlock:completition];
+         } else {
+        [Image findImagesInEvent:[[[AppManager sharedInstance] selectedEvent] parseObject] WithBlock:completition];
+    }
+    
+    
 }
 
 -(void)processPhotos:(NSArray *)photos{
@@ -57,11 +68,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSString *const gallerySegue = @"gallerySegue";
     if ([segue.identifier isEqualToString:gallerySegue]) {
-        PhotoGalleryViewController *galleryVC = (PhotoGalleryViewController *)segue.destinationViewController;
-        galleryVC.displayNavArrows = YES;
-        galleryVC.enableGrid = YES;
-        galleryVC.delegate = self;
-        galleryVC.startOnGrid = YES;
+        self.galleryVC = (PhotoGalleryViewController *)segue.destinationViewController;
+        self.galleryVC.displayNavArrows = YES;
+        self.galleryVC.enableGrid = YES;
+        self.galleryVC.delegate = self;
+        self.galleryVC.startOnGrid = YES;
     }
 }
 
@@ -81,6 +92,11 @@
 -(id<MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser thumbPhotoAtIndex:(NSUInteger)index
 {
     return self.photos [index];
+}
+
+-(void)filterPhotos:(BOOL)filter
+{
+    [self loadPhotos:filter];
 }
 
 
