@@ -59,7 +59,7 @@
 		170DC09219E9C7F90030EE16 /* ErrorHelper.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = ErrorHelper.c; sourceTree = "<group>"; };
 		1786ACCF19E8CD7D00C76D47 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		1786ACD219E8D12A00C76D47 /* SelectBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBeaconViewController.h; sourceTree = "<group>"; };
-		1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = SelectBeaconViewController.m; sourceTree = "<group>"; };
+		1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = SelectBeaconViewController.m; sourceTree = "<group>"; };
 		1786ACD519E8D50200C76D47 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		17DFEB5E19E8D82D00F941E2 /* SelectActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectActionViewController.h; sourceTree = "<group>"; };
 		17DFEB5F19E8D82D00F941E2 /* SelectActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectActionViewController.m; sourceTree = "<group>"; };

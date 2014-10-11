@@ -32,6 +32,7 @@ static AppManager *instance;
         sharedInstance.beaconManager = [[BeaconManager alloc]init];
         dispatch_queue_t imageUploadQueue = dispatch_queue_create("ImageUpload", DISPATCH_QUEUE_SERIAL);
         sharedInstance.sessionQueue = imageUploadQueue;
+        sharedInstance.currentAppCachePolicy = kPFCachePolicyCacheElseNetwork;
     });
     return sharedInstance;
 }

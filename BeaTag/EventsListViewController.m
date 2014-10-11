@@ -27,7 +27,7 @@
     [self loginUser];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.refreshControl beginRefreshing];
-    [self refresh:self.refreshControl];
+    [self refreshRequested:self.refreshControl];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -58,19 +58,24 @@
 
 -(IBAction)refresh:(UIRefreshControl *)sender
 {
-    
+    [AppManager sharedInstance].currentAppCachePolicy = kPFCachePolicyNetworkElseCache;
+    [self refreshRequested:sender];
+}
+
+-(void)refreshRequested:(UIRefreshControl *)control
+{
     [Event getListOfEventsWithBlock:^(NSArray *objects, NSError *error) {
         self.events = objects;
         if (error) {
             displayErrorOnMainQueue(error, @"Events download failed!");
         }
         
-       dispatch_async(dispatch_get_main_queue(), ^{
-           
-           [self.tableView reloadData];
-           
-           [sender endRefreshing];
-       });
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.tableView reloadData];
+            
+            [control endRefreshing];
+        });
     }];
 }
 

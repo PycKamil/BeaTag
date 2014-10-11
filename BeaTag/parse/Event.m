@@ -7,6 +7,7 @@
 //
 
 #import "Event.h"
+#import "AppManager.h"
 
 @implementation Event
 
@@ -42,6 +43,7 @@ NSString *const parseEventClassName = @"Event";
 +(void)getListOfEventsWithBlock:(PFArrayResultBlock)callback
 {
     PFQuery * query = [PFQuery queryWithClassName:parseEventClassName];
+    query.cachePolicy = [AppManager sharedInstance].currentAppCachePolicy;
     [query findObjectsInBackgroundWithBlock:callback];
 }
 

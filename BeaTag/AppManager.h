@@ -17,7 +17,7 @@
 @property (strong) Beacon* usersBeacon;
 @property (strong) Event* selectedEvent;
 @property (nonatomic, strong) BeaconManager *beaconManager;
-
+@property (nonatomic, assign) PFCachePolicy currentAppCachePolicy;
 
 + (AppManager *)sharedInstance;
 
