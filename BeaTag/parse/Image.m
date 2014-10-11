@@ -110,4 +110,9 @@ typedef void(^ImageResultBlock)(UIImage *image);
 {
 }
 
+-(void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons
+{
+    
+}
+
 @end

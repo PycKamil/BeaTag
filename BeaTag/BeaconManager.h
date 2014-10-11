@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface BeaconManager : NSObject
-
+@property (nonatomic, readonly) NSArray *beaconsArray;
 @end

@@ -50,5 +50,10 @@ NSString *const parseBeaconClassName = @"Beacon";
 }
 
 
++(NSArray *)getBeconsEnitiesWithEstimotes:(NSArray *)estimotesBeacons
+{
+    return nil;
+}
+
 
 @end

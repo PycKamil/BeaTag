@@ -24,4 +24,6 @@
 + (void)findByMinor:(NSNumber *)minor AndMajor:(NSNumber *)major WithBlock:(PFArrayResultBlock)callback;
 + (void)findByBeaconId:(NSNumber *)beaconId WithBlock:(PFArrayResultBlock)callback;
 
++(NSArray *)getBeconsEnitiesWithEstimotes:(NSArray*)estimotesBeacons;
+
 @end

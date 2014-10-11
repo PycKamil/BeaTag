@@ -8,6 +8,7 @@
 
 #import "PhotoCaptureViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "AppManager.h"
 
 static char * const AVCaptureStillImageIsCapturingStillImageContext = "AVCaptureStillImageIsCapturingStillImageContext";
 
@@ -253,6 +254,8 @@ void writeJPEGDataToCameraRoll(NSData* data, NSDictionary* metadata)
              
                  // Simple JPEG case, just save it
                  NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+                 UIImage *image = [[UIImage alloc] initWithData:imageData];
+                [[AppManager sharedInstance] uploadImage:image];
                  NSDictionary* attachments = (__bridge_transfer NSDictionary*) CMCopyDictionaryOfAttachments(kCFAllocatorDefault, imageDataSampleBuffer, kCMAttachmentMode_ShouldPropagate);
                  writeJPEGDataToCameraRoll(jpegData, attachments);
                  

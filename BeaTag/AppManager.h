@@ -24,6 +24,6 @@
 - (void)uploadEvent:(Event *)event;
 - (NSArray *)getListOfEvents;
 - (NSArray *)getUsersImagesInSelectedEvent;
-- (void)uploadImage:(UIImage *)image withBeacons:(NSArray *)beacons;
+- (void)uploadImage:(UIImage *)image;
 
 @end
