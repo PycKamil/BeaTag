@@ -10,6 +10,9 @@
 		1786ACD019E8CD7D00C76D47 /* event_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1786ACCF19E8CD7D00C76D47 /* event_icon.png */; };
 		1786ACD419E8D12A00C76D47 /* SelectBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */; };
 		1786ACD619E8D50200C76D47 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1786ACD519E8D50200C76D47 /* checkmark.png */; };
+		17DFEB6019E8D82D00F941E2 /* SelectActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DFEB5F19E8D82D00F941E2 /* SelectActionViewController.m */; };
+		17DFEB6219E8D8D600F941E2 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 17DFEB6119E8D8D600F941E2 /* camera.png */; };
+		17DFEB6419E8D8DE00F941E2 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 17DFEB6319E8D8DE00F941E2 /* images.png */; };
 		17E9EB9119E88DDA00078A64 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EB9019E88DDA00078A64 /* main.m */; };
 		17E9EB9419E88DDA00078A64 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EB9319E88DDA00078A64 /* AppDelegate.m */; };
 		17E9EB9719E88DDA00078A64 /* EventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E9EB9619E88DDA00078A64 /* EventsListViewController.m */; };
@@ -41,6 +44,10 @@
 		1786ACD219E8D12A00C76D47 /* SelectBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBeaconViewController.h; sourceTree = "<group>"; };
 		1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBeaconViewController.m; sourceTree = "<group>"; };
 		1786ACD519E8D50200C76D47 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
+		17DFEB5E19E8D82D00F941E2 /* SelectActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectActionViewController.h; sourceTree = "<group>"; };
+		17DFEB5F19E8D82D00F941E2 /* SelectActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectActionViewController.m; sourceTree = "<group>"; };
+		17DFEB6119E8D8D600F941E2 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		17DFEB6319E8D8DE00F941E2 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		17E9EB8B19E88DD900078A64 /* BeaTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E9EB8F19E88DDA00078A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17E9EB9019E88DDA00078A64 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,6 +101,8 @@
 		1786ACCE19E8CD6F00C76D47 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				17DFEB6319E8D8DE00F941E2 /* images.png */,
+				17DFEB6119E8D8D600F941E2 /* camera.png */,
 				1786ACD519E8D50200C76D47 /* checkmark.png */,
 				1786ACCF19E8CD7D00C76D47 /* event_icon.png */,
 			);
@@ -107,6 +116,8 @@
 				17E9EB9619E88DDA00078A64 /* EventsListViewController.m */,
 				1786ACD219E8D12A00C76D47 /* SelectBeaconViewController.h */,
 				1786ACD319E8D12A00C76D47 /* SelectBeaconViewController.m */,
+				17DFEB5E19E8D82D00F941E2 /* SelectActionViewController.h */,
+				17DFEB5F19E8D82D00F941E2 /* SelectActionViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -303,6 +314,8 @@
 				1786ACD619E8D50200C76D47 /* checkmark.png in Resources */,
 				17E9EB9F19E88DDA00078A64 /* LaunchScreen.xib in Resources */,
 				17E9EB9C19E88DDA00078A64 /* Images.xcassets in Resources */,
+				17DFEB6419E8D8DE00F941E2 /* images.png in Resources */,
+				17DFEB6219E8D8D600F941E2 /* camera.png in Resources */,
 				1786ACD019E8CD7D00C76D47 /* event_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17DFEB6019E8D82D00F941E2 /* SelectActionViewController.m in Sources */,
 				1786ACD419E8D12A00C76D47 /* SelectBeaconViewController.m in Sources */,
 				17E9EB9719E88DDA00078A64 /* EventsListViewController.m in Sources */,
 				17E9EBB719E8A00D00078A64 /* BeaconManager.m in Sources */,
