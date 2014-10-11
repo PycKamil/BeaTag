@@ -35,7 +35,24 @@
     XCTAssertNil(beacon.beaconId);
     XCTAssertNil(beacon.minor);
     XCTAssertNil(beacon.major);
+}
 
+- (void)testBeaconInitializationWithCompletePFObject {
+    id parseBeaconMock = [OCMockObject mockForClass:[PFObject class]];
+    [[[parseBeaconMock expect] andReturn:@"a"] objectForKeyedSubscript:@"objectId"];
+    [[[parseBeaconMock expect] andReturn:@1] objectForKeyedSubscript:@"beaconId"];
+    [[[parseBeaconMock expect] andReturn:@2] objectForKeyedSubscript:@"minor"];
+    [[[parseBeaconMock expect] andReturn:@3] objectForKeyedSubscript:@"major"];
+    [[[parseBeaconMock expect] andReturn:@"e"] objectForKeyedSubscript:@"uuid"];
+
+    Beacon *beacon = [[Beacon alloc]initWithParseObject:parseBeaconMock];
+    XCTAssertEqualObjects(beacon.objectId, @"a");
+    XCTAssertEqualObjects(beacon.uuid,@"e");
+    XCTAssertEqualObjects(beacon.beaconId, @1);
+    XCTAssertEqualObjects(beacon.minor, @2);
+    XCTAssertEqualObjects(beacon.major, @3);
+    XCTAssertNoThrow([parseBeaconMock verify]);
+    
 }
 
 @end
