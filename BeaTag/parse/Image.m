@@ -10,6 +10,8 @@
 
 @implementation Image
 
+NSString *const parseImageClassName = @"Image";
+
 - (instancetype)initWithParseObject:(PFObject *)parseObject
 {
     

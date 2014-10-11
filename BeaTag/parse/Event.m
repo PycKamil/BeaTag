@@ -10,6 +10,9 @@
 
 @implementation Event
 
+NSString *const parseEventClassName = @"Event";
+
+
 - (instancetype)initWithParseObject:(PFObject *)parseObject
 {
     
