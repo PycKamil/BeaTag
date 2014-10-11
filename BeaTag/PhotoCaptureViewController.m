@@ -24,11 +24,52 @@ static char * const AVCaptureStillImageIsCapturingStillImageContext = "AVCapture
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer *previewLayer;
 @property (strong, nonatomic) AVCaptureStillImageOutput *stillImageOutput;
 @property (strong, nonatomic) IBOutlet UIView *previewView;
+@property (nonatomic) AVCaptureDevice *videoDevice;
 
 @end
 
 @implementation PhotoCaptureViewController
 
+
+-(IBAction)changeFlashSetting:(UIButton *)sender
+{
+    AVCaptureDevice *currentDevice = self.videoDevice;
+    
+    if([currentDevice isFlashAvailable]){
+        NSError *error = nil;
+        [currentDevice lockForConfiguration:&error];
+        if(!error){
+            if (currentDevice.torchMode == AVCaptureTorchModeOff)
+            {
+                [currentDevice setTorchMode:AVCaptureTorchModeOn];
+                [currentDevice setFlashMode:AVCaptureFlashModeOn];
+            }
+            else
+            {
+                [currentDevice setTorchMode:AVCaptureTorchModeOff];
+                [currentDevice setFlashMode:AVCaptureFlashModeOff];
+            }
+            [currentDevice unlockForConfiguration];
+        }
+    }
+
+}
+
+-(void)tapToFocus:(UITapGestureRecognizer *)singleTap{
+    CGPoint touchPoint = [singleTap locationInView:self.previewView];
+    CGPoint convertedPoint = [self.previewLayer captureDevicePointOfInterestForPoint:touchPoint];
+    AVCaptureDevice *currentDevice = self.videoDevice;
+    
+    if([currentDevice isFocusPointOfInterestSupported] && [currentDevice isFocusModeSupported:AVCaptureFocusModeAutoFocus]){
+        NSError *error = nil;
+        [currentDevice lockForConfiguration:&error];
+        if(!error){
+            [currentDevice setFocusPointOfInterest:convertedPoint];
+            [currentDevice setFocusMode:AVCaptureFocusModeAutoFocus];
+            [currentDevice unlockForConfiguration];
+        }
+    }
+}
 
 // converts UIDeviceOrientation to AVCaptureVideoOrientation
 static AVCaptureVideoOrientation avOrientationForDeviceOrientation(UIDeviceOrientation deviceOrientation)
@@ -82,7 +123,11 @@ static AVCaptureVideoOrientation avOrientationForDeviceOrientation(UIDeviceOrien
     // this will allow us to sync freezing the preview when the image is being captured
     [self.stillImageOutput addObserver:self forKeyPath:@"capturingStillImage" options:NSKeyValueObservingOptionNew context:AVCaptureStillImageIsCapturingStillImageContext];
     
-
+    
+    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToFocus:)];
+    [tapGR setNumberOfTapsRequired:1];
+    [tapGR setNumberOfTouchesRequired:1];
+    [self.previewView addGestureRecognizer:tapGR];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -202,6 +247,7 @@ static AVCaptureVideoOrientation avOrientationForDeviceOrientation(UIDeviceOrien
         if ([d position] == desiredPosition) {
             NSError *error = nil;
             AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:d error:&error];
+            self.videoDevice = d;
             if (error) {
                 hadError = YES;
             } else if ( [self.session canAddInput:input] ) {
@@ -253,7 +299,7 @@ void writeJPEGDataToCameraRoll(NSData* data, NSDictionary* metadata)
          } else {
              
                  // Simple JPEG case, just save it
-                 NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+                NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
                 UIImage *image = [[UIImage alloc] initWithData:jpegData];
                 [[AppManager sharedInstance] uploadImage:image];
                  NSDictionary* attachments = (__bridge_transfer NSDictionary*) CMCopyDictionaryOfAttachments(kCFAllocatorDefault, imageDataSampleBuffer, kCMAttachmentMode_ShouldPropagate);

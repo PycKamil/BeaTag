@@ -22,6 +22,7 @@
     [super viewDidLoad];
     self.navigationItem.title = [NSString stringWithFormat:@"%@ Gallery",[[[AppManager sharedInstance] selectedEvent] name] ];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(filterPhotos)];
+    
 }
 
 -(void)reloadData

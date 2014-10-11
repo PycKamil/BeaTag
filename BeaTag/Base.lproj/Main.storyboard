@@ -387,6 +387,16 @@
                                     <segue destination="eEg-5A-uSu" kind="unwind" unwindAction="backFromCamera:" id="3d8-hP-SXy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D26-T5-dnB">
+                                <rect key="frame" x="524" y="10" width="50" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Flash">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeFlashSetting:" destination="Z7F-6r-rSm" eventType="touchUpInside" id="O4F-fA-y5E"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byL-Uw-2rI">
                                 <rect key="frame" x="250" y="477" width="100" height="100"/>
                                 <constraints>
@@ -404,9 +414,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="57q-F2-N4K" firstAttribute="leading" secondItem="fT3-ZY-3kf" secondAttribute="leadingMargin" constant="10" id="3Zu-hT-hte"/>
+                            <constraint firstItem="D26-T5-dnB" firstAttribute="top" secondItem="fT3-ZY-3kf" secondAttribute="topMargin" constant="10" id="7Ul-22-xfl"/>
                             <constraint firstItem="JSr-KA-RSX" firstAttribute="leading" secondItem="fT3-ZY-3kf" secondAttribute="leading" id="KTA-ko-lqd"/>
                             <constraint firstItem="JSr-KA-RSX" firstAttribute="top" secondItem="hNZ-zK-7By" secondAttribute="bottom" id="Mfr-St-31t"/>
                             <constraint firstItem="57q-F2-N4K" firstAttribute="top" secondItem="fT3-ZY-3kf" secondAttribute="topMargin" constant="10" id="cml-hb-HVf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="D26-T5-dnB" secondAttribute="trailing" constant="10" id="e0Z-Tp-zKI"/>
                             <constraint firstItem="m4v-KV-F6r" firstAttribute="top" secondItem="byL-Uw-2rI" secondAttribute="bottom" constant="23" id="fJb-Y2-9Ld"/>
                             <constraint firstAttribute="trailing" secondItem="JSr-KA-RSX" secondAttribute="trailing" id="jgZ-Pn-uvP"/>
                             <constraint firstAttribute="centerX" secondItem="byL-Uw-2rI" secondAttribute="centerX" id="oDn-Mj-VqO"/>
