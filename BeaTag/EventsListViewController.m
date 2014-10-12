@@ -12,6 +12,7 @@
 #import "EventTableViewCell.h"
 #import "AppManager.h"
 #import "ErrorHelper.h"
+#import "Beacon.h"
 
 @interface EventsListViewController ()
 
@@ -48,8 +49,45 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Event *event = [[Event alloc]initWithParseObject:self.events[indexPath.row]];
-    [[AppManager sharedInstance] setSelectedEvent:event];
+    AppManager *manager = [AppManager sharedInstance];
+    
+    if (manager.selectedEvent == event && [AppManager sharedInstance].usersBeacon) {
+        [self performSegueWithIdentifier:@"goToEventBoard" sender:tableView];
+    } else {
+        [[AppManager sharedInstance] setSelectedEvent:event];
+        [AppManager sharedInstance].usersBeacon = nil;
+        
+        PFObjectResultBlock completion1 = ^(PFObject *object, NSError *error) {
+            if (!error && object) {
+                Beacon *beacon = [[Beacon alloc] initWithParseObject:object];
+                [AppManager sharedInstance].usersBeacon = beacon;
+                [self performSegueWithIdentifier:@"goToEventBoard" sender:self];
+
+            } else {
+                [self performSegueWithIdentifier:@"goToBeaconSelection" sender:self];
+
+            }
+            
+        };
+    
+        PFArrayResultBlock completion = ^(NSArray *objects, NSError *error) {
+            if (!error && objects && [objects count] > 0) {
+                    PFQuery *query = [PFQuery queryWithClassName:@"Beacon"];
+                    query.cachePolicy = [AppManager sharedInstance].currentAppCachePolicy;
+                    PFObject *object = [objects objectAtIndex:0][@"beacon"];
+                
+                    [query getObjectInBackgroundWithId:object.objectId block:completion1];
+                
+            } else {
+                [self performSegueWithIdentifier:@"goToBeaconSelection" sender:self];
+            }
+            
+        };
+        
+        [Beacon getBeaconForEvent:event AssignedToUser:[PFUser currentUser] WithBlock:completion];
+    }
 }
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

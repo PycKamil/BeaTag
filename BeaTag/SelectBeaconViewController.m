@@ -72,7 +72,7 @@
 
 - (void)showErrorMessage:(NSString *)message
 {
-      [[[UIAlertView alloc]initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+    [[[UIAlertView alloc]initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
 }
 
 /*

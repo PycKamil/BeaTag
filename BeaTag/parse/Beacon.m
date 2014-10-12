@@ -87,5 +87,21 @@ NSString *const parseBeaconClassName = @"Beacon";
     [userBeaconEvent saveInBackgroundWithBlock:callback];
 }
 
++ (void)getBeaconsAndEventsAssignedToUser:(PFUser *)user WithBlock:(PFArrayResultBlock)callback
+{
+    PFQuery * query = [PFQuery queryWithClassName:@"UserBeaconEvent"];
+    [query whereKey:@"user" equalTo:user];
+
+    [query findObjectsInBackgroundWithBlock:callback];
+}
+
++ (void)getBeaconForEvent:(Event *)event AssignedToUser:(PFUser *)user WithBlock:(PFArrayResultBlock)callback
+{
+    PFQuery * query = [PFQuery queryWithClassName:@"UserBeaconEvent"];
+    [query whereKey:@"user" equalTo:user];
+    [query whereKey:@"event" equalTo:event.parseObject];
+    
+    [query findObjectsInBackgroundWithBlock:callback];
+}
 
 @end

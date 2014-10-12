@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lcu-2U-WyA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lcu-2U-WyA">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -210,7 +210,6 @@
                                     <outlet property="logoImageView" destination="p4h-cu-gat" id="pxw-1w-bJ0"/>
                                     <outlet property="subTitleLabel" destination="YqD-xt-dRW" id="52y-gy-atB"/>
                                     <outlet property="titleLabel" destination="8bM-Ho-eH8" id="nF0-oG-r18"/>
-                                    <segue destination="vfQ-Uj-ShN" kind="show" id="67T-bU-4Pq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -233,6 +232,10 @@
                             <action selector="refresh:" destination="r9C-4L-Twc" eventType="valueChanged" id="o72-b4-KIv"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <segue destination="vfQ-Uj-ShN" kind="show" identifier="goToBeaconSelection" id="164-Ua-6RH"/>
+                        <segue destination="fmj-9g-bO0" kind="show" identifier="goToEventBoard" id="ftd-mY-o4C"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zK5-mo-9Kr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -481,4 +484,7 @@
         <image name="checkmark.png" width="300" height="300"/>
         <image name="images.png" width="300" height="300"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ftd-mY-o4C"/>
+    </inferredMetricsTieBreakers>
 </document>

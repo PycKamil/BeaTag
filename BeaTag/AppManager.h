@@ -14,13 +14,17 @@
 
 @interface AppManager : NSObject
 
-@property (strong) Beacon* usersBeacon;
-@property (strong) Event* selectedEvent;
+@property (nonatomic, strong) Beacon* usersBeacon;
+@property (nonatomic, strong) Event* selectedEvent;
+
 @property (nonatomic, strong) BeaconManager *beaconManager;
 @property (nonatomic, assign) PFCachePolicy currentAppCachePolicy;
 
 + (AppManager *)sharedInstance;
 
 - (void)uploadImage:(UIImage *)image;
+
+//- (void)triggerFetchingListOfBeaconsAndEventsForCurrentUser;
+
 
 @end

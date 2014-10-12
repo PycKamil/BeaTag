@@ -28,6 +28,7 @@
 
 + (NSArray *)getBeconsEnitiesWithEstimotes:(NSArray*)estimotesBeacons;
 + (void)assignBeacon:(Beacon *)beacon ToUser:(PFUser *)user AndEvent:(Event *)event WithBlock:(PFBooleanResultBlock)callback;
-
++ (void)getBeaconsAndEventsAssignedToUser:(PFUser *)user WithBlock:(PFArrayResultBlock)callback;
++ (void)getBeaconForEvent:(Event *)event AssignedToUser:(PFUser *)user WithBlock:(PFArrayResultBlock)callback;
 
 @end
