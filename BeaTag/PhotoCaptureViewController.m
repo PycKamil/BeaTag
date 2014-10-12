@@ -315,7 +315,21 @@ void writeJPEGDataToCameraRoll(NSData* data, NSDictionary* metadata)
                  // Simple JPEG case, just save it
                 NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
                 UIImage *image = [[UIImage alloc] initWithData:jpegData];
-             [[AppManager sharedInstance] uploadImage:image withCompletitionBlock:^(BOOL succeeded, NSError *error) {
+             UIImage *scaledImage = nil;
+             CGSize targetSize = CGSizeMake(image.size.width * 0.25f,image.size.height * 0.25f);
+             UIGraphicsBeginImageContext(targetSize);
+             
+             CGRect thumbnailRect = CGRectMake(0, 0, 0, 0);
+             thumbnailRect.origin = CGPointMake(0.0,0.0);
+             thumbnailRect.size.width  = targetSize.width;
+             thumbnailRect.size.height = targetSize.height;
+             
+             [image drawInRect:thumbnailRect];
+             
+             scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+             
+             UIGraphicsEndImageContext();
+             [[AppManager sharedInstance] uploadImage:scaledImage withCompletitionBlock:^(BOOL succeeded, NSError *error) {
                  dispatch_async(dispatch_get_main_queue(), ^{
                      WBSuccessNoticeView *success = [WBSuccessNoticeView successNoticeInView:self.view title:@"Image uploaded!"];
                      [success show];
