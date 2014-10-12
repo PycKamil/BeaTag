@@ -35,9 +35,8 @@ NSString *const parseBeaconClassName = @"Beacon";
 + (Beacon *)findByMinor:(NSNumber *)minor andMajor:(NSNumber *)major
 {
     PFQuery * query = [PFQuery queryWithClassName:parseBeaconClassName];
-    [query whereKey:@"uuid" equalTo:[[ESTIMOTE_PROXIMITY_UUID UUIDString] lowercaseString]];
-    [query whereKey:@"minor" greaterThan:minor];
-    [query whereKey:@"major" greaterThan:major];
+    [query whereKey:@"minor" equalTo:minor];
+    [query whereKey:@"major" equalTo:major];
     
     return [[query findObjects] firstObject];
 }
@@ -46,8 +45,8 @@ NSString *const parseBeaconClassName = @"Beacon";
 {
     PFQuery * query = [PFQuery queryWithClassName:parseBeaconClassName];
     [query whereKey:@"uuid" equalTo:ESTIMOTE_PROXIMITY_UUID];
-    [query whereKey:@"minor" greaterThan:minor];
-    [query whereKey:@"major" greaterThan:major];
+    [query whereKey:@"minor" equalTo:minor];
+    [query whereKey:@"major" equalTo:major];
     
     [query findObjectsInBackgroundWithBlock:callback];
 }
