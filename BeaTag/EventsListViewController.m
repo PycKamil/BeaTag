@@ -12,6 +12,7 @@
 #import "EventTableViewCell.h"
 #import "AppManager.h"
 #import "ErrorHelper.h"
+#import "Beacon.h"
 
 @interface EventsListViewController ()
 
@@ -45,10 +46,64 @@
     return eventCell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Event *event = [[Event alloc]initWithParseObject:self.events[indexPath.row]];
-    [[AppManager sharedInstance] setSelectedEvent:event];
+    AppManager *manager = [AppManager sharedInstance];
+    
+    if (!manager.selectedEvent) {
+        [[AppManager sharedInstance] setSelectedEvent:event];
+
+    }
+    
+    if (manager.selectedEvent == event && [AppManager sharedInstance].usersBeacon) {
+        [self performSegueWithIdentifier:@"goToEventBoard" sender:tableView];
+    } else {
+        [[AppManager sharedInstance] setSelectedEvent:event];
+        [AppManager sharedInstance].usersBeacon = nil;
+        
+        PFObjectResultBlock beaconFetchingCompletionBlock = ^(PFObject *object, NSError *error) {
+            if (!error) {
+                
+                if (object) {
+                    Beacon *beacon = [[Beacon alloc] initWithParseObject:object];
+                    [AppManager sharedInstance].usersBeacon = beacon;
+                    [self performSegueWithIdentifier:@"goToEventBoard" sender:self];
+                    
+                } else {
+                    [self performSegueWithIdentifier:@"goToBeaconSelection" sender:self];
+                }
+                
+            } else {
+                [self showConnectionErrorMessage];
+
+            }
+            
+        };
+    
+        PFArrayResultBlock fetchBeaconsForEventCompletionBlock = ^(NSArray *objects, NSError *error) {
+            if (!error){
+                if(objects && [objects count] > 0) {
+                    NSString *beaconId = [self retrieveBeaconIdFromPFObjectArray:objects];
+                    [Beacon findBeaconByObjectId:beaconId WithBlock:beaconFetchingCompletionBlock];
+                } else {
+                    [self performSegueWithIdentifier:@"goToBeaconSelection" sender:self];
+                }
+            } else {
+                [self showConnectionErrorMessage];
+            }
+        
+        };
+        
+        [Beacon getBeaconForEvent:event AssignedToUser:[PFUser currentUser] WithBlock:fetchBeaconsForEventCompletionBlock];
+    }
+}
+
+
+-(NSString *)retrieveBeaconIdFromPFObjectArray:(NSArray *)objects
+{
+    PFObject *object = [objects objectAtIndex:0][@"beacon"];
+    return object.objectId;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -94,6 +149,11 @@
         }
         
     }];
+}
+
+- (void)showConnectionErrorMessage
+{
+    [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Error while connecting server. Could not get iBeacon details" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
 }
 
 - (void)didReceiveMemoryWarning {

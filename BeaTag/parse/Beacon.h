@@ -8,6 +8,8 @@
 
 #import <Parse/Parse.h>
 
+@class Event;
+
 @interface Beacon : NSObject
 
 @property (strong) NSString *objectId;
@@ -21,9 +23,17 @@
 
 - (instancetype)initWithParseObject:(PFObject *)parseObject;
 
+
++ (void)findBeaconByObjectId:(NSString *)objectId;
 + (void)findByMinor:(NSNumber *)minor AndMajor:(NSNumber *)major WithBlock:(PFArrayResultBlock)callback;
 + (void)findByBeaconId:(NSNumber *)beaconId WithBlock:(PFArrayResultBlock)callback;
 
-+(NSArray *)getBeconsEnitiesWithEstimotes:(NSArray*)estimotesBeacons;
++ (NSArray *)getBeconsEnitiesWithEstimotes:(NSArray*)estimotesBeacons;
++ (void)assignBeacon:(Beacon *)beacon ToUser:(PFUser *)user AndEvent:(Event *)event WithBlock:(PFBooleanResultBlock)callback;
++ (void)getBeaconsAndEventsAssignedToUser:(PFUser *)user WithBlock:(PFArrayResultBlock)callback;
++ (void)getBeaconForEvent:(Event *)event AssignedToUser:(PFUser *)user WithBlock:(PFArrayResultBlock)callback;
+
++ (void)findBeaconByObjectId:(NSString *)objectId WithBlock:(PFObjectResultBlock)callback;
+
 
 @end

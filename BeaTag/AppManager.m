@@ -33,23 +33,9 @@ static AppManager *instance;
         dispatch_queue_t imageUploadQueue = dispatch_queue_create("ImageUpload", DISPATCH_QUEUE_SERIAL);
         sharedInstance.sessionQueue = imageUploadQueue;
         sharedInstance.currentAppCachePolicy = kPFCachePolicyCacheElseNetwork;
+
     });
     return sharedInstance;
-}
-
-
-
-- (void)uploadEvent:(Event *)event
-{
-    
-}
-
-
-
-- (NSArray *)getUsersImagesInSelectedEvent
-{
-    return nil;
-    
 }
 
 - (void)uploadImage:(UIImage *)image
@@ -61,5 +47,28 @@ static AppManager *instance;
     });
 }
 
+
+//
+//- (void)triggerFetchingListOfBeaconsAndEventsForCurrentUser
+//{
+//    PFArrayResultBlock completion = ^(NSArray *objects, NSError *error) {
+//        
+//        
+//        NSMutableDictionary *beaconsEvents = [NSMutableDictionary new];
+//        
+//        for (PFObject* object in objects) {
+//            PFObject *e = object[@"event"];
+//            PFObject *b = object[@"beacon"];
+//            
+//        }
+//        
+//        [AppManager sharedInstance].beaconsAndEvents = beaconsEvents;
+//        
+//    };
+//    
+//    
+//    [Beacon getBeaconsAndEventsAssignedToUser:[PFUser currentUser] WithBlock:completion];
+//    
+//}
 
 @end

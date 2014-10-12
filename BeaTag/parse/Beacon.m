@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 Kamil Pyć. All rights reserved.
 //
 
-#import "Beacon.h"
 #import <ESTBeaconManager.h>
+#import "Beacon.h"
+#import "Event.h"
+#import "AppManager.h"
 
 @implementation Beacon
 
@@ -76,5 +78,42 @@ NSString *const parseBeaconClassName = @"Beacon";
     return entityBeacons.copy;
 }
 
++ (void)assignBeacon:(Beacon *)beacon ToUser:(PFUser *)user AndEvent:(Event *)event WithBlock:(PFBooleanResultBlock)callback
+{
+    PFObject *userBeaconEvent = [PFObject objectWithClassName:@"UserBeaconEvent"];
+    userBeaconEvent[@"user"] = user;
+    userBeaconEvent[@"beacon"] = beacon.parseObject;
+    userBeaconEvent[@"event"] = event.parseObject;
+    
+    [userBeaconEvent saveInBackgroundWithBlock:callback];
+}
+
++ (void)getBeaconsAndEventsAssignedToUser:(PFUser *)user WithBlock:(PFArrayResultBlock)callback
+{
+    PFQuery * query = [PFQuery queryWithClassName:@"UserBeaconEvent"];
+    [query whereKey:@"user" equalTo:user];
+
+    [query findObjectsInBackgroundWithBlock:callback];
+}
+
++ (void)getBeaconForEvent:(Event *)event AssignedToUser:(PFUser *)user WithBlock:(PFArrayResultBlock)callback
+{
+    PFQuery * query = [PFQuery queryWithClassName:@"UserBeaconEvent"];
+    [query whereKey:@"user" equalTo:user];
+    [query whereKey:@"event" equalTo:event.parseObject];
+    query.cachePolicy = [AppManager sharedInstance].currentAppCachePolicy;
+    [query findObjectsInBackgroundWithBlock:callback];
+}
+
+
++ (void)findBeaconByObjectId:(NSString *)objectId WithBlock:(PFObjectResultBlock)callback
+{
+ 
+    PFQuery *query = [PFQuery queryWithClassName:@"Beacon"];
+    query.cachePolicy = [AppManager sharedInstance].currentAppCachePolicy;
+
+    [query getObjectInBackgroundWithId:objectId block:callback];
+
+}
 
 @end
