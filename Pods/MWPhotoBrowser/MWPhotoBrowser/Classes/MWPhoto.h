@@ -15,6 +15,7 @@
 // conforms to MWPhotoProtocol
 @interface MWPhoto : NSObject <MWPhoto>
 
+@property (nonatomic, assign) BOOL isUserOnIt;
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, readonly) UIImage *image;
 @property (nonatomic, readonly) NSURL *photoURL;

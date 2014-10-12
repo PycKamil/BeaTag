@@ -53,7 +53,6 @@
         displayErrorOnMainQueue(nil, @"Beacons module error!");
     } else if([ESTBeaconManager authorizationStatus] == kCLAuthorizationStatusRestricted) {
         displayErrorOnMainQueue(nil, @"You have no access to location services.");
-
     }
 }
 

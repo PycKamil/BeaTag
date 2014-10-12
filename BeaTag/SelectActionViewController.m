@@ -55,7 +55,20 @@
     NSMutableArray *photosArray = [NSMutableArray new];
     for (PFObject * pfobject in photos) {
         PFFile *file = [pfobject valueForKey:@"imageFile"];
+        
+        PFRelation *relation = [pfobject relationForKey:@"beacons"];
+        PFQuery *query = [relation query];
+        
         MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:file.url]];
+        [[query findObjects] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSLog(@"%@", obj);
+            PFObject *beacon = obj;
+            if([beacon[@"beaconId"] integerValue] == [[[[AppManager sharedInstance] usersBeacon] beaconId] integerValue])
+            {
+                photo.isUserOnIt = YES;
+                *stop = YES;
+            }
+        }];
         [photosArray addObject:photo];
     }
     self.photos = [photosArray copy];
@@ -97,6 +110,11 @@
 -(id<MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser thumbPhotoAtIndex:(NSUInteger)index
 {
     return self.photos [index];
+}
+
+-(BOOL)photoBrowser:(MWPhotoBrowser *)photoBrowser isPhotoSelectedAtIndex:(NSUInteger)index
+{
+    return [self.photos [index] isUserOnIt];
 }
 
 -(void)filterPhotos:(BOOL)filter

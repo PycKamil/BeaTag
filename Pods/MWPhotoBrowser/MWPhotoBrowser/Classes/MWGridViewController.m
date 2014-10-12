@@ -163,6 +163,7 @@
     cell.selectionMode = _selectionMode;
     cell.isSelected = [_browser photoIsSelectedAtIndex:indexPath.row];
     cell.index = indexPath.row;
+    cell.selectionMode = [photo isUserOnIt];
     UIImage *img = [_browser imageForPhoto:photo];
     if (img) {
         [cell displayImage];
