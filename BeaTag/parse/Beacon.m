@@ -9,6 +9,7 @@
 #import <ESTBeaconManager.h>
 #import "Beacon.h"
 #import "Event.h"
+#import "AppManager.h"
 
 @implementation Beacon
 
@@ -100,7 +101,7 @@ NSString *const parseBeaconClassName = @"Beacon";
     PFQuery * query = [PFQuery queryWithClassName:@"UserBeaconEvent"];
     [query whereKey:@"user" equalTo:user];
     [query whereKey:@"event" equalTo:event.parseObject];
-    
+    query.cachePolicy = [AppManager sharedInstance].currentAppCachePolicy;
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
