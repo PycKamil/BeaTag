@@ -70,7 +70,6 @@
         
         MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:file.url]];
         [[query findObjects] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            NSLog(@"%@", obj);
             PFObject *beacon = obj;
             if([beacon[@"beaconId"] integerValue] == [[[[AppManager sharedInstance] usersBeacon] beaconId] integerValue])
             {
