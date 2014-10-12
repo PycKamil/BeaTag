@@ -18,28 +18,20 @@
 
 @implementation PhotoGalleryViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = [NSString stringWithFormat:@"%@ Gallery",[[[AppManager sharedInstance] selectedEvent] name] ];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(filterPhotos)];
-    
 }
 
 -(void)reloadData
 {
     [super reloadData];
     [[[self valueForKey:@"_gridController"]collectionView] reloadData ];
-
-    [self performLayout];
-    [self.view setNeedsLayout];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self performLayout];
-    [self.view setNeedsLayout];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -60,7 +60,15 @@
     [super viewDidLoad];
     [self.collectionView registerClass:[MWGridCell class] forCellWithReuseIdentifier:@"GridCell"];
     self.collectionView.alwaysBounceVertical = YES;
-    self.collectionView.backgroundColor = [UIColor blackColor];
+    self.collectionView.backgroundColor = [UIColor colorWithRed:41.f/255.f green:171.f/255.f blue:226.f/255.f alpha:1.f];
+
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.browser setControlsHidden:YES animated:NO permanent:YES];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
