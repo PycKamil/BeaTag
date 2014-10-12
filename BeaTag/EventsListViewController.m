@@ -51,13 +51,18 @@
     Event *event = [[Event alloc]initWithParseObject:self.events[indexPath.row]];
     AppManager *manager = [AppManager sharedInstance];
     
+    if (!manager.selectedEvent) {
+        [[AppManager sharedInstance] setSelectedEvent:event];
+
+    }
+    
     if (manager.selectedEvent == event && [AppManager sharedInstance].usersBeacon) {
         [self performSegueWithIdentifier:@"goToEventBoard" sender:tableView];
     } else {
         [[AppManager sharedInstance] setSelectedEvent:event];
         [AppManager sharedInstance].usersBeacon = nil;
         
-        PFObjectResultBlock completion1 = ^(PFObject *object, NSError *error) {
+        PFObjectResultBlock beaconFetchingCompletionBlock = ^(PFObject *object, NSError *error) {
             if (!error && object) {
                 Beacon *beacon = [[Beacon alloc] initWithParseObject:object];
                 [AppManager sharedInstance].usersBeacon = beacon;
@@ -70,24 +75,26 @@
             
         };
     
-        PFArrayResultBlock completion = ^(NSArray *objects, NSError *error) {
+        PFArrayResultBlock fetchBeaconsForEventCompletionBlock = ^(NSArray *objects, NSError *error) {
             if (!error && objects && [objects count] > 0) {
-                    PFQuery *query = [PFQuery queryWithClassName:@"Beacon"];
-                    query.cachePolicy = [AppManager sharedInstance].currentAppCachePolicy;
-                    PFObject *object = [objects objectAtIndex:0][@"beacon"];
-                
-                    [query getObjectInBackgroundWithId:object.objectId block:completion1];
-                
+                NSString *beaconId = [self retrieveBeaconIdFromPFObjectArray:objects];
+                [Beacon findBeaconByObjectId:beaconId WithBlock:beaconFetchingCompletionBlock];
             } else {
                 [self performSegueWithIdentifier:@"goToBeaconSelection" sender:self];
             }
             
         };
         
-        [Beacon getBeaconForEvent:event AssignedToUser:[PFUser currentUser] WithBlock:completion];
+        [Beacon getBeaconForEvent:event AssignedToUser:[PFUser currentUser] WithBlock:fetchBeaconsForEventCompletionBlock];
     }
 }
 
+
+-(NSString *)retrieveBeaconIdFromPFObjectArray:(NSArray *)objects
+{
+    PFObject *object = [objects objectAtIndex:0][@"beacon"];
+    return object.objectId;
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

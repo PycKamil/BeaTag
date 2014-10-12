@@ -105,4 +105,15 @@ NSString *const parseBeaconClassName = @"Beacon";
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
+
++ (void)findBeaconByObjectId:(NSString *)objectId WithBlock:(PFObjectResultBlock)callback
+{
+ 
+    PFQuery *query = [PFQuery queryWithClassName:@"Beacon"];
+    query.cachePolicy = [AppManager sharedInstance].currentAppCachePolicy;
+
+    [query getObjectInBackgroundWithId:objectId block:callback];
+
+}
+
 @end
