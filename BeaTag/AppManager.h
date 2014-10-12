@@ -22,7 +22,7 @@
 
 + (AppManager *)sharedInstance;
 
-- (void)uploadImage:(UIImage *)image;
+- (void)uploadImage:(UIImage *)image withCompletitionBlock:(PFBooleanResultBlock)block;
 
 //- (void)triggerFetchingListOfBeaconsAndEventsForCurrentUser;
 

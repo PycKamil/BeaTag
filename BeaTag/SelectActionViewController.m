@@ -12,6 +12,7 @@
 #import "AppManager.h"
 #import "Image.h"
 #import "ErrorHelper.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface SelectActionViewController () <MWPhotoBrowserDelegate>
 
@@ -24,14 +25,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self loadPhotos:NO];
     self.navigationItem.title = [[[AppManager sharedInstance] selectedEvent] name];
     // Do any additional setup after loading the view.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self loadPhotos:NO];
+
+}
+
 -(void)loadPhotos:(BOOL)filtered
 {
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     PFArrayResultBlock completition = ^(NSArray *objects, NSError *error) {
         if (error) {
             displayErrorOnMainQueue(error, @"Loading photos failed!");
@@ -40,6 +48,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self processPhotos:objects];
             [self.galleryVC reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     };
     if(filtered){

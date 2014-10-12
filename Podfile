@@ -8,6 +8,7 @@ pod 'Parse', '~> 1.4'
 pod 'ParseFacebookUtils'
 pod 'MWPhotoBrowser'
 pod 'THObserversAndBinders', '~> 1.0'
+pod 'NoticeView', '~> 3.0'
 
 end
 

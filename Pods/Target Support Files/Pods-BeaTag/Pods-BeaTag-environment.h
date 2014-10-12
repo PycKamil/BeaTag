@@ -42,6 +42,12 @@
 #define COCOAPODS_VERSION_MINOR_MWPhotoBrowser 4
 #define COCOAPODS_VERSION_PATCH_MWPhotoBrowser 1
 
+// NoticeView
+#define COCOAPODS_POD_AVAILABLE_NoticeView
+#define COCOAPODS_VERSION_MAJOR_NoticeView 3
+#define COCOAPODS_VERSION_MINOR_NoticeView 0
+#define COCOAPODS_VERSION_PATCH_NoticeView 7
+
 // PSTCollectionView
 #define COCOAPODS_POD_AVAILABLE_PSTCollectionView
 #define COCOAPODS_VERSION_MAJOR_PSTCollectionView 1

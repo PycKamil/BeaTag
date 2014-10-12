@@ -28,6 +28,6 @@
 
 + (void)findImagesInEvent:(PFObject *)event WithBlock:(PFArrayResultBlock)callback;
 
-+ (void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons event:(PFObject *)event;
++ (void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons event:(PFObject *)event withCompletitionBlock:(PFBooleanResultBlock)block;
 
 @end

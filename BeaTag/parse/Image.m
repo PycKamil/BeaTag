@@ -58,16 +58,16 @@ NSString *const parseImageClassName = @"Image";
     [query findObjectsInBackgroundWithBlock:callback];
 }
 
-+ (void)saveImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons event:(PFObject *)event
++ (void)saveImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons event:(PFObject *)event withCompletitionBlock:(PFBooleanResultBlock)block
 {
     NSData *imageData = UIImageJPEGRepresentation(image, 0.05f);
     
     PFFile *file = [PFFile fileWithData:imageData];
     
-    [self createRelationUploadImage:file withBeacons:enitityBeacons event:event];
+    [self createRelationUploadImage:file withBeacons:enitityBeacons event:event withCompletitionBlock:block];
 }
 
-+ (void)createRelationUploadImage:(PFFile *)imageFile withBeacons:(NSArray *)enitityBeacons event:(PFObject *)event
++ (void)createRelationUploadImage:(PFFile *)imageFile withBeacons:(NSArray *)enitityBeacons event:(PFObject *)event withCompletitionBlock:(PFBooleanResultBlock)block
 {
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
@@ -81,6 +81,7 @@ NSString *const parseImageClassName = @"Image";
             [userPhoto setValue:event forKey:@"event"];
             [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
+                    block(YES, nil);
                 }
                 else {
                     displayErrorOnMainQueue(error, @"Image upload failed!");
@@ -122,9 +123,9 @@ typedef void(^ImageResultBlock)(UIImage *image);
 {
 }
 
-+(void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons event:(PFObject *)event
++(void)uploadImage:(UIImage *)image withBeacons:(NSArray *)enitityBeacons event:(PFObject *)event withCompletitionBlock:(PFBooleanResultBlock)block
 {
-    [Image saveImage:image withBeacons:enitityBeacons event:event];
+    [Image saveImage:image withBeacons:enitityBeacons event:event withCompletitionBlock:block];
 }
 
 @end

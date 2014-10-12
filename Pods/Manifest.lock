@@ -10,6 +10,7 @@ PODS:
     - MBProgressHUD (~> 0.8)
     - PSTCollectionView (~> 1.2)
     - SDWebImage (~> 3.7)
+  - NoticeView (3.0.7)
   - OCMock (3.1.1)
   - Parse (1.4.1):
     - Bolts (~> 1.1.2)
@@ -25,6 +26,7 @@ PODS:
 DEPENDENCIES:
   - EstimoteSDK (~> 2.1)
   - MWPhotoBrowser
+  - NoticeView (~> 3.0)
   - OCMock (~> 3.1)
   - Parse (~> 1.4)
   - ParseFacebookUtils
@@ -37,6 +39,7 @@ SPEC CHECKSUMS:
   Facebook-iOS-SDK: f20274d809f112ba540842e2b6cbe50128d51b7b
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   MWPhotoBrowser: be05b3b7521e961382a4ba5579685bf5a00b93d8
+  NoticeView: 357545814931eb92428de54449f405f91c84a1b8
   OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
   Parse: db1a09c832b7509edcc88a65dc07229f5e578c73
   ParseFacebookUtils: 625da00d0f36a34e25ebae7f543385a0f19ccf1e

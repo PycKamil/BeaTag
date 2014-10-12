@@ -12,6 +12,7 @@
 #import <THObserversAndBinders/THObserver.h>
 #import "BeaconManager.h"
 #import "ErrorHelper.h"
+#import <WBSuccessNoticeView.h>
 
 static char * const AVCaptureStillImageIsCapturingStillImageContext = "AVCaptureStillImageIsCapturingStillImageContext";
 
@@ -314,7 +315,12 @@ void writeJPEGDataToCameraRoll(NSData* data, NSDictionary* metadata)
                  // Simple JPEG case, just save it
                 NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
                 UIImage *image = [[UIImage alloc] initWithData:jpegData];
-                [[AppManager sharedInstance] uploadImage:image];
+             [[AppManager sharedInstance] uploadImage:image withCompletitionBlock:^(BOOL succeeded, NSError *error) {
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     WBSuccessNoticeView *success = [WBSuccessNoticeView successNoticeInView:self.view title:@"Image uploaded!"];
+                     [success show];
+                 });
+             }];
                  NSDictionary* attachments = (__bridge_transfer NSDictionary*) CMCopyDictionaryOfAttachments(kCFAllocatorDefault, imageDataSampleBuffer, kCMAttachmentMode_ShouldPropagate);
                  writeJPEGDataToCameraRoll(jpegData, attachments);
                  

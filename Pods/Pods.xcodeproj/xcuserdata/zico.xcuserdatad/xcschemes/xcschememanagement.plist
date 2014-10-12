@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-BeaTag-NoticeView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BeaTag-PSTCollectionView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,72 +82,77 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>19F73CFECA4F6B3FD1046BFE</key>
+		<key>01CF12A3CEE3A01273D13AE8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1E626681DB9B4F79593992A0</key>
+		<key>157AD5A8BE724ED5FAE631AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>446F1ECD765CEDA74975CEF5</key>
+		<key>23613F69B02782B7E1884F2E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4A67D7899A70B1B092660D9B</key>
+		<key>28437A575316700525AEBC73</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>523B5D098AF91CAD695320FA</key>
+		<key>33535F4B2DDA61988D0C1A9E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A7460142A1581077B8AB6BC</key>
+		<key>40C26AE48B90C075039E166E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8DF73A3FD27C652D8D997A58</key>
+		<key>42E6F00F5CB2B1A46F90945D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A564BECCFA8BDAC80CC4823</key>
+		<key>51092BA75B7B8153288B1518</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EDDB3F267AA4D2E82EEBF2E</key>
+		<key>66E25427B28B22D223AFD646</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AE48B8EECFF6B8070FB7ACE1</key>
+		<key>733EC24C1A8D7B399CE398F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B980EC946C703FE2E11C4307</key>
+		<key>746344438ABE4C25B15FC3A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA4DDC64FC03B1BF848D2753</key>
+		<key>77042DBBBDA5BF18FD88A03D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D584FFEE7340875BC7C2CF01</key>
+		<key>A3CFC5BDEAFCE6E168ACB6C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DEE0A70BDF260AE42A964B1F</key>
+		<key>B0E24AD7F2A67C7F2162DD04</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E92CFF30D8C122B357B450C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -38,12 +38,12 @@ static AppManager *instance;
     return sharedInstance;
 }
 
-- (void)uploadImage:(UIImage *)image
+- (void)uploadImage:(UIImage *)image withCompletitionBlock:(PFBooleanResultBlock)block
 {
     dispatch_async(self.sessionQueue, ^{
         NSArray *estimoteBeacons = [self.beaconManager beaconsArray];
         NSArray *enitityBeacons = [Beacon getBeconsEnitiesWithEstimotes:estimoteBeacons];
-        [Image uploadImage:image withBeacons:enitityBeacons event:self.selectedEvent.parseObject];
+        [Image uploadImage:image withBeacons:enitityBeacons event:self.selectedEvent.parseObject withCompletitionBlock:block];
     });
 }
 
